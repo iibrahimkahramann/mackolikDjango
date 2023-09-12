@@ -22,6 +22,7 @@ class Club(models.Model):
     league = models.ForeignKey(Leagues, on_delete=models.CASCADE, related_name='Ligler')
     image = models.ImageField(upload_to='news_club_images/', default='club_image.jpg')
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
+    match = models.ForeignKey('Matches', on_delete=models.CASCADE, related_name='maç', default='1')
 
     class Meta:
         db_table = 'Club'
@@ -79,6 +80,8 @@ class Matches(models.Model):
     time = models.FloatField()
     stadium = models.CharField(max_length=120)
     skor = models.CharField(max_length=120)
+    slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
+
 
     class Meta:
         db_table = 'Matches'

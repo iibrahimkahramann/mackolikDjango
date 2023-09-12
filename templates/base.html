@@ -1,10 +1,33 @@
+{% load static%}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ana sayfa</title>
 </head>
 <body>
+
+<table class="table">
+  <thead>
+      {% for lig in ligler %}
+        <th scope="col">{{lig.name}}</th>
+      {% endfor %}
+  </thead>
+  <tbody>
+    <tr>
+      {% for mac in maclar%}
+        <td>{{mac.club1}}</td>
+        <td>{{mac.skor}}</td>
+        <td>{{mac.time}}</td>
+        <td>{{mac.club2}}</td>
+        <td><a href="{% url 'match_details' mac_slug=mac.slug %}">{{mac.stadium}}</a></td>
+      {% endfor %}
+    </tr>
+
+  </tbody>
+</table>
 
 </body>
 </html>
