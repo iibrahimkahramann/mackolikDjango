@@ -71,3 +71,24 @@ class Player(models.Model):
 
 
 
+
+
+class Matches(models.Model):
+    club1 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='kulüp1')
+    club2 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='kulüp2')
+    time = models.FloatField()
+    stadium = models.CharField(max_length=120)
+    skor = models.CharField(max_length=120)
+
+    class Meta:
+        db_table = 'Matches'
+        verbose_name = 'Maçlar'
+        verbose_name_plural = 'Maçlar'
+
+    def __str__(self):
+        return self.stadium
+
+
+
+
+
