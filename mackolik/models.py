@@ -22,8 +22,6 @@ class Club(models.Model):
     league = models.ForeignKey(Leagues, on_delete=models.CASCADE, related_name='Ligler')
     image = models.ImageField(upload_to='news_club_images/', default='club_image.jpg')
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
-    match = models.ForeignKey('Matches', on_delete=models.CASCADE, related_name='maç', default='1')
-
     class Meta:
         db_table = 'Club'
         verbose_name = 'Kulüp'
@@ -73,6 +71,27 @@ class Player(models.Model):
 
 
 
+class Referee(models.Model):
+    name = models.CharField(max_length=120)
+    age = models.PositiveIntegerField()
+    nationality = models.CharField(max_length=120)
+    image = models.ImageField(upload_to='news_referee_images/', default='referee_image.jpg')
+
+
+    class Meta:
+        db_table = 'Referee'
+        verbose_name = 'Hakem'
+        verbose_name_plural = 'Hakem'
+
+    def __str__(self):
+        return self.name
+
+
+
+
+
+
+
 
 class Matches(models.Model):
     club1 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='kulüp1')
@@ -81,6 +100,9 @@ class Matches(models.Model):
     stadium = models.CharField(max_length=120)
     skor = models.CharField(max_length=120)
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
+    league = models.ForeignKey(Leagues, on_delete=models.CASCADE, related_name='lig')
+    referee =models.ForeignKey(Referee, on_delete=models.CASCADE, related_name='hakem')
+
 
 
     class Meta:
@@ -90,6 +112,7 @@ class Matches(models.Model):
 
     def __str__(self):
         return self.stadium
+
 
 
 

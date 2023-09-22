@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+  <div class="container">
+      <!-- code here -->
+      <div class="match">
+          <div class="match-header">
+              <div class="match-status"></div>
+              <div class="match-tournament"><img src="{{ maclar.league.image.url }}" />{{ maclar.league}}</div>
+              <div class="match-actions">
+              </div>
+          </div>
+        <div class="match-content">
+            <div class="column">
+                <div class="team team--home">
+                    <div class="team-logo">
+                        <img src="{{ maclar.club1.image.url }}" alt="{{ maclar.club1.name }} Logo" />
+                    </div>
+                    <h2 class="team-name">{{ maclar.club1.name }}</h2>
+                </div>
+            </div>
+            <div class="column">
+                <div class="match-details">
+                    <div class="match-date">
+                        <strong>{{ maclar.time }}</strong>
+                    </div>
+                    <div class="match-score">
+                        <span class="match-score-number">{{ maclar.skor}}</span>
+                    </div>
+                    <div class="match-time-lapsed">
+
+                    </div>
+                    <div class="match-referee">
+                        Hakem: <strong>{{ maclar.referee}}</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="team team--away">
+                    <div class="team-logo">
+                        <img src="{{ maclar.club2.image.url }}" alt="{{ maclar.club2.name }} Logo" />
+                    </div>
+                    <h2 class="team-name">{{ maclar.club2.name }}</h2>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+{% endblock %}

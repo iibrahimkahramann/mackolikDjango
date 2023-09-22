@@ -7,7 +7,7 @@ def homepage(request):
     kulupler = Club.objects.all()
     maclar = Matches.objects.all()
     futbolcular = Player.objects.all()
-    return render(request, 'base.html', {
+    return render(request, 'pages/homepage.html', {
         'ligler': ligler,
         'td': td,
         'kulup': kulupler,
@@ -19,17 +19,12 @@ def homepage(request):
 
 
 
-def match_details(request, mac_slug):
-    maclar = get_object_or_404(Matches,slug=mac_slug)
-    kulupler = Matches.objects.all()
-    kulupler_maclar = Club.objects.filter(category=category).order_by('-created_on')
-    return render(request, 'match_details.html', {
+def match_details(request, match_slug):
+    maclar = get_object_or_404(Matches, slug=match_slug)
+    kulupler_maclar = Matches.objects.filter(league=maclar.league).order_by('-time')
+    return render(request, 'pages/match_details.html', {
         'maclar': maclar,
-        'kulupler': kulupler,
         'kulupler_maclar': kulupler_maclar,
-
     })
-
-
 
 
