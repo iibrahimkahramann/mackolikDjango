@@ -28,3 +28,13 @@ def match_details(request, match_slug):
     })
 
 
+
+def league_details(request, league_slug):
+    ligler = get_object_or_404(Leagues, slug=league_slug)
+    return render(request, 'pages/league_details.html', {
+        'ligler': ligler,
+
+    })
+
+
+

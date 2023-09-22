@@ -1,0 +1,8 @@
+body, html {
+  background-color: ;
+}
+
+.table.is-scrollable tbody {
+  width: auto;
+  position: absolute;
+}
