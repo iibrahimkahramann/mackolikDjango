@@ -22,6 +22,8 @@ class Club(models.Model):
     league = models.ForeignKey(Leagues, on_delete=models.CASCADE, related_name='Ligler')
     image = models.ImageField(upload_to='news_club_images/', default='club_image.jpg')
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
+    puan = models.PositiveIntegerField(null=True)
+
     class Meta:
         db_table = 'Club'
         verbose_name = 'Kulüp'
