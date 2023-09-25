@@ -40,3 +40,9 @@ def league_details(request, league_slug):
 
 
 
+
+def club_details(request):
+    return render(request, 'pages/club_details.html')
+
+
+
