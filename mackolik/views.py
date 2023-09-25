@@ -31,7 +31,7 @@ def match_details(request, match_slug):
 
 def league_details(request, league_slug):
     ligler = get_object_or_404(Leagues, slug=league_slug)
-    kulupler_ligler = Club.objects.filter(league=league).order_by('-puan')
+    kulupler_ligler = Club.objects.filter(league=ligler).order_by('-puan')
     return render(request, 'pages/league_details.html', {
         'ligler': ligler,
         'kulupler_ligler': kulupler_ligler
