@@ -61,6 +61,8 @@ class Player(models.Model):
     numbers = models.PositiveIntegerField()
     club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='kulüp')
     image = models.ImageField(upload_to='news_player_images/', default='player_image.jpg')
+    slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
+
 
     class Meta:
         db_table = 'Player'
@@ -69,8 +71,6 @@ class Player(models.Model):
 
     def __str__(self):
         return self.name
-
-
 
 
 class Referee(models.Model):

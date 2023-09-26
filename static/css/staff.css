@@ -1,0 +1,92 @@
+html {
+  background: #222;
+}
+.container {
+  text-align: center;
+}
+.cardd {
+  font-family: 'Roboto Condensed', Arial, sans-serif;
+  -webkit-perspective: 1500;
+  -webkit-transform-style: preserve-3d;
+  position: relative;
+  height: 300px;
+  width: 200px;
+  display: inline-block;
+  margin: 0 10px;
+}
+.cardd .front,
+.cardd .back {
+  overflow: hidden;
+  text-align: left;
+  box-shadow: rgba(0, 0, 0, 0.7) 0 2px 6px -2px;
+  background: #fff;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  background-color: #222;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+}
+.cardd .front {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center  center;
+  transform: rotateY(0);
+  z-index: 2;
+}
+.cardd .front .title {
+  text-shadow: rgba(0, 0, 0, 0.5) 0 1px 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.5)));
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+}
+.cardd .front .title h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+  font-size: 32px;
+}
+.cardd .back {
+  background: #333;
+  transform: rotateY(-180deg);
+  padding: 20px;
+}
+.cardd .back p {
+  margin: 0 0 20px 0;
+}
+.cardd .back .btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+}
+.cardd .btn {
+  padding: 10px;
+  display: block;
+  color: inherit;
+  border: 1px solid #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  text-align: center;
+}
+.cardd .btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.cardd:hover .front {
+  transform: rotateY(180deg);
+}
+.cardd:hover .back {
+  transform: rotateY(0);
+}
