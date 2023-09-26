@@ -5,17 +5,16 @@
 <div class="container">
   {% for oyuncu in oyuncular %}
     <div class="cardd">
-      <div class="front" style="background-image: url('http://kanal5.com.mk/uploads/mesi-39-.jpg')">
+      <div class="front" style="background-image: url('{{ oyuncu.image.url }}')">
         <div class="title">
-          <h2>{{oyuncu.name}}</h2>
+          <h2>{{oyuncu.name }}</h2>
         </div>
       </div>
       <div class="back">
-        <p>Lionel Andrés "Leo" Messi Cuccittini is an Argentine professional footballer who plays as a forward for Spanish club FC Barcelona.</p>
-        <a class="btn" href="http://en.wikipedia.org/wiki/Lionel_Messi">View profile</a>
+        <p>{{ oyuncu.name }}, {{oyuncu.club}} da oynayan profosyonel bir futbolcudur.{{oyuncu.foot}} ayağını kullanır, {{oyuncu.size}} boyundadır ve {{oyuncu.weight}} kilodur.</p>
       </div>
     </div>
-  {%endfor%}
+  {% endfor %}
 </div>
 
 {%endblock%}
