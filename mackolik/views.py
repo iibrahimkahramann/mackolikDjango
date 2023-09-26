@@ -16,9 +16,6 @@ def homepage(request):
     })
 
 
-
-
-
 def match_details(request, match_slug):
     maclar = get_object_or_404(Matches, slug=match_slug)
     kulupler_maclar = Matches.objects.filter(league=maclar.league).order_by('-time')
@@ -41,8 +38,11 @@ def league_details(request, league_slug):
 
 
 
-def club_details(request):
-    return render(request, 'pages/club_details.html')
+def club_details(request, club_slug):
+    kulupler = get_object_or_404(Club, slug=club_slug)
+    return render(request, 'pages/club_details.html', {
+        'kulupler': kulupler,
+    })
 
 
 

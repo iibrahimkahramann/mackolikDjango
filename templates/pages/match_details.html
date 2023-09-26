@@ -16,7 +16,7 @@
                     <div class="team-logo">
                         <img src="{{ maclar.club1.image.url }}" alt="{{ maclar.club1.name }} Logo" />
                     </div>
-                    <h2 class="team-name">{{ maclar.club1.name }}</h2>
+                    <h2 class="team-name"><a href="{% url 'club_details' club_slug=maclar.club1.slug%}">{{ maclar.club1.name }}</a></h2>
                 </div>
             </div>
             <div class="column">
@@ -40,7 +40,7 @@
                     <div class="team-logo">
                         <img src="{{ maclar.club2.image.url }}" alt="{{ maclar.club2.name }} Logo" />
                     </div>
-                    <h2 class="team-name">{{ maclar.club2.name }}</h2>
+                    <h2 class="team-name"><a href="{% url 'club_details' club_slug=maclar.club2.slug%}">{{ maclar.club2.name }}</a></h2>
                 </div>
             </div>
         </div>

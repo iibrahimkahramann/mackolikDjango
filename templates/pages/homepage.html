@@ -40,6 +40,7 @@
         <h2 class="hero__title">
           Win $100 000 with Free Prediction
         </h2>
+
         <p class="hero__text">
           Predict the first goal of two different teams in two selected matches and win up to $100 000.
         </p>
@@ -90,13 +91,13 @@
                   <td>
                     <div class="score score--vertical">
                       <div class="score__team score__team--vertical">
-                        <span>{{ mac.club1 }}</span><img alt="" src="{{ mac.club1.image.url}}" />
+                        <a href="{% url 'club_details' club_slug=mac.club1.slug %}">{{ mac.club1 }}</a><img alt="" src="{{ mac.club1.image.url}}" />
                       </div>
                       <p class="score__result score__result--vertical">
                         <span class="score__goals"> <a href="{% url 'match_details' match_slug=mac.slug %}">{{ mac.skor }}</a></span>
                       </p>
                       <div class="score__team score__team--vertical">
-                        <img alt="" src="{{ mac.club2.image.url}}" /><span>{{ mac.club2}}</span>
+                        <a href="{% url 'club_details' club_slug=mac.club2.slug %}">{{ mac.club2}}</a><img alt="" src="{{ mac.club2.image.url}}" />
                       </div>
                     </div>
                     <td>

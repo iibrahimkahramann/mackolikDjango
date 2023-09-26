@@ -1,22 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {%block content%}
-    <main class="main">
+
+<main class="main">
         <section class="team-info">
-            <h2>Takım İsmi</h2>
-            <img src="takim-fotograf.jpg" alt="Takım Fotoğrafı">
-            <p>Stadyumu: Stadyum Adı</p>
-            <p>Teknik Direktörü: Direktör Adı Soyadı</p>
+            <h2>{{ kulupler.name }}</h2>
+            <img src="{{ kulupler.image.url}}" alt="Takım Fotoğrafı">
+            <p>Stadyumu: {{ kulupler.stadium}}</p>
+            <p>Teknik Direktörü: {{kulupler.coach}}</p>
         </section>
         <section class="team-players">
             <h2>Kadrosu</h2>
             <ul>
-                <li>Oyuncu 1 Adı Soyadı</li>
-                <li>Oyuncu 2 Adı Soyadı</li>
-                <li>Oyuncu 3 Adı Soyadı</li>
-                <!-- Daha fazla oyuncu eklemek için buraya yazın -->
             </ul>
         </section>
-    </main>
+</main>
 
 {%endblock%}
