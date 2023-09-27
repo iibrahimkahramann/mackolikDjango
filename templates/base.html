@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/league.css' %}" media="screen">
     <link rel="stylesheet" type="text/css" href="{% static 'css/club.css' %}" media="screen">
     <link rel="stylesheet" type="text/css" href="{% static 'css/staff.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/news.css' %}" media="screen">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 
@@ -43,7 +45,7 @@
           <a class="nav-link active" href="{% url 'homepage' %}">Fikstür</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">Haberler</a>
+          <a class="nav-link" href="{% url 'news'%}">Haberler</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href=""></a>

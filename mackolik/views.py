@@ -53,3 +53,8 @@ def staff(request, club_slug):
     return render(request, 'pages/staff.html',{
         'oyuncular': oyuncular,
     })
+
+
+
+def news(request):
+    return render(request, 'news/news.html')
