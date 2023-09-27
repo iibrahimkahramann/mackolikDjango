@@ -48,7 +48,7 @@ def club_details(request, club_slug):
 
 
 
-def staff(request):
+def staff(request, club_slug):
     oyuncular = Player.objects.all()
     return render(request, 'pages/staff.html',{
         'oyuncular': oyuncular,
@@ -60,4 +60,12 @@ def news(request):
     haberler = News.objects.all()
     return render(request, 'news/news.html', {
         'haberler': haberler,
+    })
+
+
+
+def news_detail(request, news_slug):
+    haber = get_object_or_404(News,slug=news_slug)
+    return render(request, 'news/news_detail.html', {
+        'haber': haber,
     })

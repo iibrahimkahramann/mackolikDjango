@@ -13,7 +13,7 @@
         <div class="news-card__post-name">{{ haber.summary }}</div>
         <div class="news-card__details-wrapper">
           <p class="news-card__excerpt">{{haber.author}}&hellip;</p>
-          <a href="#" class="news-card__read-more">Detaylar... <i class="fas fa-long-arrow-alt-right"></i></a>
+          <a href="{% url 'news_detail' news_slug=haber.slug %}" class="news-card__read-more">Detaylar... <i class="fas fa-long-arrow-alt-right"></i></a>
         </div>
       </div>
     </div>

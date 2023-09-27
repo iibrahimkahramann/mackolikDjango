@@ -5,6 +5,8 @@
   box-sizing: border-box;
 }
 
+
+
 :root {
   --color-text-primary: #1c2a38;
   --color-text-secondary: #8A8F98;
@@ -221,13 +223,10 @@ body {
 }
 
 .container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+
+
+<div class="section-news-detail">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <div class="news-block">
+
+          <img src="{{ haber.image.url }}">
+
+          <h3>
+            {{haber.title}}
+          </h3>
+          <p>{{haber.created_on}} </p>
+          <p class="title-news">{{haber.contents}}</p>
+          <h6>{{haber.author}}</h6>
+
+        </div>
+        <div class="clear">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+{% endblock %}
