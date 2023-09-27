@@ -97,7 +97,7 @@
                         <span class="score__goals"> <a href="{% url 'match_details' match_slug=mac.slug %}">{{ mac.skor }}</a></span>
                       </p>
                       <div class="score__team score__team--vertical">
-                        <a href="{% url 'club_details' club_slug=mac.club2.slug %}">{{ mac.club2}}</a><img alt="" src="{{ mac.club2.image.url}}" />
+                        <img alt="" src="{{ mac.club2.image.url}}" /><a href="{% url 'club_details' club_slug=mac.club2.slug %}">{{ mac.club2}}</a>
                       </div>
                     </div>
                     <td>
