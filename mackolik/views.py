@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Leagues, Coach, Club, Matches, Player
+from .models import Leagues, Coach, Club, Matches, Player,News,Author
 
 def homepage(request):
     ligler = Leagues.objects.all()
@@ -48,7 +48,7 @@ def club_details(request, club_slug):
 
 
 
-def staff(request, club_slug):
+def staff(request):
     oyuncular = Player.objects.all()
     return render(request, 'pages/staff.html',{
         'oyuncular': oyuncular,
@@ -57,4 +57,7 @@ def staff(request, club_slug):
 
 
 def news(request):
-    return render(request, 'news/news.html')
+    haberler = News.objects.all()
+    return render(request, 'news/news.html', {
+        'haberler': haberler,
+    })
