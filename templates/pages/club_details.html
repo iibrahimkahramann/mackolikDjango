@@ -8,6 +8,7 @@
             <img src="{{ kulupler.image.url}}" alt="Takım Fotoğrafı">
             <p>Stadyumu: {{ kulupler.stadium}}</p>
             <p>Teknik Direktörü: {{kulupler.coach}}</p>
+            <p>Kupalar: {{kulupler.cup}}</p>
         </section>
         <section class="team-players">
             <h2><a href="{% url 'staff' kulupler.slug %}">Takım Kadrosu</a></h2>

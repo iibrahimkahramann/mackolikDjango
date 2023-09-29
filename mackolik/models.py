@@ -14,6 +14,21 @@ class Leagues(models.Model):
     def __str__(self):
         return self.name
 
+
+
+class Cup(models.Model):
+    name = models.CharField(max_length=120)
+    league = models.ForeignKey(Leagues, on_delete=models.CASCADE, related_name='league')
+
+    class Meta:
+        db_table = 'Cup'
+        verbose_name = 'Kupa'
+        verbose_name_plural = 'Kupa'
+
+    def __str__(self):
+        return self.name
+
+
 class Club(models.Model):
     name = models.CharField(max_length=120, unique=True)
     country = models.CharField(max_length=120)
@@ -23,6 +38,7 @@ class Club(models.Model):
     image = models.ImageField(upload_to='news_club_images/', default='club_image.jpg')
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
     puan = models.PositiveIntegerField(null=True)
+    cup = models.ForeignKey(Cup, on_delete=models.CASCADE, related_name='kupa', null=True)
 
     class Meta:
         db_table = 'Club'
@@ -162,15 +178,4 @@ class News(models.Model):
 
 
 
-class Cup(models.Model):
-    name = models.CharField(max_length=120)
-    league = models.ForeignKey(Leagues, on_delete=models.CASCADE, related_name='league')
-
-    class Meta:
-        db_table = 'Cup'
-        verbose_name = 'Kupa'
-        verbose_name_plural = 'Kupa'
-
-    def __str__(self):
-        return self.name
 
