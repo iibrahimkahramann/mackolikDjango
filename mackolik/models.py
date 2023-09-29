@@ -179,3 +179,16 @@ class News(models.Model):
 
 
 
+class Transfers(models.Model):
+    player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='oyuncu')
+    tok = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='transfer_oldugu_kulup')
+    ok = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='oynadıgı_kulup')
+    time = models.DateField()
+
+    class Meta:
+        db_table = 'Transfers'
+        verbose_name = 'Transferler'
+        verbose_name_plural = 'Transferler'
+
+    def __str__(self):
+        return self.player
