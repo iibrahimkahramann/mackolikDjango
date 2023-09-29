@@ -48,9 +48,11 @@ def club_details(request, club_slug):
 
 
 
-def staff(request, club_slug):
-    oyuncular = Player.objects.all()
+def staff(request,club_slug):
+    kulup = get_object_or_404(Club, slug=club_slug)
+    oyuncular = Player.objects.filter(club=kulup)
     return render(request, 'pages/staff.html',{
+        'kulup': kulup,
         'oyuncular': oyuncular,
     })
 

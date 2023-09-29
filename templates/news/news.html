@@ -6,14 +6,13 @@
 <div class="content-wrapper">
   {% for haber in haberler %}
     <div class="news-card">
-      <a href="#" class="news-card__card-link"></a>
+      <a href="{% url 'news_detail' news_slug=haber.slug %}" class="news-card__card-link"></a>
       <img src="{{haber.image.url}}" alt="" class="news-card__image">
       <div class="news-card__text-wrapper">
         <h2 class="news-card__title">{{haber.title}}</h2>
         <div class="news-card__post-name">{{ haber.summary }}</div>
         <div class="news-card__details-wrapper">
           <p class="news-card__excerpt">{{haber.author}}&hellip;</p>
-          <a href="{% url 'news_detail' news_slug=haber.slug %}" class="news-card__read-more">Detaylar... <i class="fas fa-long-arrow-alt-right"></i></a>
         </div>
       </div>
     </div>
