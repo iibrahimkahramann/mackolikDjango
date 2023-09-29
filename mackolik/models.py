@@ -191,4 +191,4 @@ class Transfers(models.Model):
         verbose_name_plural = 'Transferler'
 
     def __str__(self):
-        return self.player
+        return self.player.name
