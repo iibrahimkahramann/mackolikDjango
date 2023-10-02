@@ -44,6 +44,19 @@
                 </div>
             </div>
         </div>
+        <h2>{{ maclar.club1.name }} İlk 11</h2>
+        <ul>
+            {% for player in maclar.club1_team_line_up.all %}
+                <li>{{ player.name }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>{{ maclar.club2.name }} İlk 11</h2>
+        <ul>
+            {% for player in maclar.club2_team_line_up.all %}
+                <li>{{ player.name }}</li>
+            {% endfor %}
+        </ul>
       </div>
   </div>
 {% endblock %}
