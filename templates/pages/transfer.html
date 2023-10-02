@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block content%}
+<h3>Gelen Transferler</h3>
+<ul>
+    {% for transfer in tok %}
+        <li>{{ transfer.player.name }}: {{ transfer.time }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Giden Transferler</h3>
+<ul>
+    {% for transfer in ok %}
+        <li>{{ transfer.player.name }}: {{ transfer.time }}</li>
+    {% endfor %}
+</ul>
+
+
+{%endblock%}
