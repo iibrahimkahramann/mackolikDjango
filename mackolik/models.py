@@ -78,6 +78,8 @@ class Player(models.Model):
     club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='kulüp')
     image = models.ImageField(upload_to='news_player_images/', default='player_image.jpg')
 
+
+
     class Meta:
         db_table = 'Player'
         verbose_name = 'Oyuncu'
@@ -182,7 +184,7 @@ class News(models.Model):
 class Transfers(models.Model):
     player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='oyuncu')
     tok = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='transfer_oldugu_kulup')
-    ok = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='oynadıgı_kulup')
+    ok = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='oynadıgı_kulup', null=True)
     time = models.DateField()
 
     class Meta:

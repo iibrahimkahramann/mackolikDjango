@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Leagues, Coach, Club, Matches, Player,News,Author
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Leagues, Coach, Club, Matches, Player,News,Author, Transfers
 
 def homepage(request):
     ligler = Leagues.objects.all()
@@ -70,4 +70,26 @@ def news_detail(request, news_slug):
     haber = get_object_or_404(News,slug=news_slug)
     return render(request, 'news/news_detail.html', {
         'haber': haber,
+    })
+
+def transfer(request, player_id):
+    oyuncu = Player.objects.get(pk=player_id)
+
+    if request.method == 'POST':
+        ok = oyuncu.club
+        tok_id = request.POST.get('transfer_oldugu_kulup')
+        tok = Club.objects.get(pk=tok_id)
+
+        transfer = Transfers(player=oyuncu, ok=ok, tok=tok)
+        transfer.save()
+
+        oyuncu.club = tok
+        oyuncu.save()
+
+        return redirect('club_details', player_id=player_id)
+
+    kulupler = Club.objects.all()
+    return render(request, '', {
+        'oyuncu': oyuncu,
+        'kulupler': kulupler
     })
