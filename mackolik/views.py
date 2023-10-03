@@ -42,9 +42,11 @@ def league_details(request, league_slug):
 def club_details(request, club_slug):
     kulupler = get_object_or_404(Club, slug=club_slug)
     futbolcular = Player.objects.all()
+    maclar = Matches.objects.filter(Q(club1=kulupler) | Q(club2=kulupler))
     return render(request, 'pages/club_details.html', {
         'kulupler': kulupler,
         'futbolcular': futbolcular,
+        'maclar': maclar,
     })
 
 
@@ -82,4 +84,7 @@ def transfers(request, club_slug):
         'ok': ok,
         'tok': tok
     })
+
+
+
 

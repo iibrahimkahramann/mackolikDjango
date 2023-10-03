@@ -13,6 +13,12 @@
         <section class="team-players">
             <h2><a href="{% url 'staff' kulupler.slug %}">Takım Kadrosu</a></h2>
             <h2><a href="{% url 'transfers' club_slug=kulupler.slug %}">Transferler</a></h2>
+            <h2>Fikstür</h2>
+            <ul>
+                {% for mac in maclar %}
+                    <li>{{ mac.time }} - {{ mac.club1.name }} vs. {{ mac.club2.name }} (Skor: {{ mac.skor }})</li>
+                {% endfor %}
+            </ul>
 
         </section>
 </main>
