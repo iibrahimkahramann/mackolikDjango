@@ -20,7 +20,7 @@ admin.site.register(News)
 admin.site.register(Cup)
 
 class TransferAdmin(admin.ModelAdmin):
-    list_display = ('player', 'tok', 'ok', 'time')
+    filter_horizontal = ('player','tok', 'ok')
 
 
-admin.site.register(Transfers)
+admin.site.register(Transfers,TransferAdmin)

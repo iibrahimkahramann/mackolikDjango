@@ -185,9 +185,9 @@ class News(models.Model):
 
 
 class Transfers(models.Model):
-    player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='oyuncu')
-    tok = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='transfer_oldugu_kulup')
-    ok = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='oynadıgı_kulup', null=True)
+    player = models.ManyToManyField(Player, related_name='oyuncu')
+    tok = models.ManyToManyField(Club,  related_name='transfer_oldugu_kulup')
+    ok = models.ManyToManyField(Club, related_name='oynadıgı_kulup', null=True)
     time = models.DateField()
 
     class Meta:
