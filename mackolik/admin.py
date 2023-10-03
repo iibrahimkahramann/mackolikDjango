@@ -8,7 +8,12 @@ admin.site.register(Leagues)
 admin.site.register(Club)
 admin.site.register(Coach)
 admin.site.register(Player)
-admin.site.register(Matches)
+
+class MatchAdmin(admin.ModelAdmin):
+    filter_horizontal = ('club1_team_line_up', 'club2_team_line_up')
+
+
+admin.site.register(Matches,MatchAdmin)
 admin.site.register(Referee)
 admin.site.register(Author)
 admin.site.register(News)
