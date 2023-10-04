@@ -8,7 +8,7 @@
                     <div class="lig-main">
                         <h1>{{leagues.name}}</h1>
                         <div class="lig-main-country">
-                            <img src="../assets/img/Flag_of_the_United_Kingdom_(3-5).svg.png" alt="">
+                            <img src="{{leagues.nationality.image.url}}" alt="">
                             <span>{{leagues.nationality}}</span>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {% for club in club_leagues %}
+                                {% for club in clubs_leagues %}
                                     <tr>
                                         <td>
                                             1
@@ -97,7 +97,6 @@
                     <div class="tab-pane fade matches" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <div class="card__body matches__data">
                             <div class="card-main-macthes">
-                                <span>Trendyol Süper Lig</span>
                             </div>
                             <table>
                                 <tbody>
@@ -130,20 +129,8 @@
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         <div class="card-body">
-                            <div class="card-title-bg"></div>
-                            <p class="card-text">
-                                Premier League (genellikle İngiltere dışında England Premier League (EPL) olarak adlandırılır), İngiliz futbolunda lig sisteminin en üst seviyesindeki ligdir. Her yılın Ağustos ayında başlayan ve toplam 20 takımın katılımıyla gerçekleşen ligin sona ermesinin ardından, bağlı bulunan English Football League'den üç takım terfi ederken Premier League'den üç takım küme düşer.
-
-                                Premier League, üye kulüplerin hissedar olarak hareket ettiği bir şirkettir. Ağustos'tan Mayıs'a kadar devam eden bir sezonda, her takımın birbiri ile iç ve dış sahada birer tane olmak üzere iki kere karşılaştığı 38 lig haftasından oluşur.[1] Maçlar genellikle Cumartesi ve Pazar öğleden sonraları oynanmakla beraber haftanın her günü müsabaka olabildiği ve genellikle bir takvim haftası içerisinde birden fazla lig haftası geçildiği için bu tarihlere hafta yerine 20 takımın birbiri ile karşılaştığı on adet müsabakadan oluşan müsabaka günü (matchday) tabiri kullanılır. Premier League, kurulduğu günden bu yana 47 İngiliz ve iki Galler kulübüne (Swansea City ve Cardiff City) ev sahipliği yaptı ve böylece sınır ötesi bir lig haline geldi.
-
-                                Organizasyon, Football League First Division'da yer alan kulüplerin, 1888 yılında kurulan Football League'den ayrılma kararını takiben 20 Şubat 1992'de FA Premier League ismiyle kuruldu. Lige katılan takımlar kazançlı bir televizyon hakları anlaşmasından yararlandılar.[2] Anlaşma, 2013-2014 yılları arasında yurt içinde £1 milyar değerinde idi ve BSkyB ile BT Group, sırasıyla 116 ve 38 maçı yayınlama hakkına sahipti.[3] Lig, yerli ve uluslararası televizyon haklarından da yılda €2.2 milyar değerinde gelir sağlıyordu.[4]
-
-                                2014-15 yılında takımlar £1,6 milyar gelir elde ederken,[5] 2016-17 yılında bu sayı hızla artarak £2.4 milyara ulaştı ve takımlar arasında paylaştırıldı.[6] Premier League, dünyanın en çok izlenen spor ligidir ve 212 bölgede 643 milyon eve, 4.7 milyar potansiyel TV izleyicisine yayın yapmaktadır.[7][8] 2014-15 sezonunda, 36.000 seyirci ortalamasına sahip Premier League,[9] 43.500 ortalamalı Bundesliga'nın arkasından herhangi bir profesyonel futbol liginde ikinci en yüksek seyirci ortalamasına sahip oldu.[10] Çoğu stadyum tam kapasitesine yakın bir doluluk oranına sahiptir.[11] Premier League, 2018 yılından itibaren son beş sezon boyunca Avrupa kupalarındaki performanslara bağlı olarak oluşturulan, liglerin UEFA katsayılarında birinci sırada yer almaktadır.
-
-                                Premier League'in kurulduğu 1992 yılından bu yana toplam elli kulüp 3 Aralık 2018 tarihinde Wayback Machine sitesinde arşivlendi. mücadele etti. Bunlardan yedisi ligi kazanma başarısı gösterdi: Manchester United (13), Manchester City (7), Chelsea (5), Arsenal (3), Blackburn Rovers (1) Leicester City (1) ve Liverpool (1). Arsenal 2003-04 sezonunun sonunda, tek bir maç kaybetmeden ligi zirvede tamamladı. Böylece bir Premier League sezonunu maç kaybetmeden şampiyon tamamlayan tek kulüp oldu ve yenilmezler anlamına gelen "The Invincibles" lakabını aldı. Manchester City 2017-18 sezonunda ligde toplam 100 puana ulaştı ve böylece lig tarihinde bir sezon içerisinde en çok puan toplayan takım unvanını kazandı.
-
-                                Ligin tamamlanan son sezonu olan 2022-23 sezonunda ise şampiyonluğa ulaşan takım Manchester City olmuştur.
-                            </p>
+                            <div class="card-title-bg" style="background-image: url({{leagues.nationality.image.url}});"></div>
+                            <p class="card-text"> {{ leagues.history}}</p>
                         </div>
                     </div>
                   </div>

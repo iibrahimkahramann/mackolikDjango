@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Leagues, Club, Coach, Player, Matches, Referee, Author, News, Cup, Transfers
+from .models import Leagues, Club, Coach, Player, Matches, Referee, Author, News, Cup, Transfers, Nationality
 
 
 
@@ -24,3 +24,4 @@ class TransferAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Transfers,TransferAdmin)
+admin.site.register(Nationality)

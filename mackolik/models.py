@@ -1,11 +1,28 @@
 from django.db import models
 from autoslug import AutoSlugField
 
+
+class Nationality(models.Model):
+    name = models.CharField(max_length=120)
+    image = models.ImageField(upload_to='news_nationality_images/', default='league_image.jpg')
+    slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
+
+    class Meta:
+        db_table = 'Nationality'
+        verbose_name = 'Ülke'
+        verbose_name_plural = 'Ülke'
+    def __str__(self):
+        return self.name
+
+
+
+
 class Leagues(models.Model):
     name = models.CharField(max_length=120)
-    nationality = models.CharField(max_length=120, null=True)
+    nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE, related_name='ulke', null=True)
     image = models.ImageField(upload_to='news_league_images/', default='league_image.jpg')
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
+    history = models.TextField(null=True)
 
     class Meta:
         db_table = 'Leagues'
@@ -188,7 +205,7 @@ class News(models.Model):
 class Transfers(models.Model):
     player = models.ManyToManyField(Player, related_name='oyuncu')
     tok = models.ManyToManyField(Club,  related_name='transfer_oldugu_kulup')
-    ok = models.ManyToManyField(Club, related_name='oynadıgı_kulup', null=True)
+    ok = models.ManyToManyField(Club, related_name='oynadıgı_kulup',)
     time = models.DateField()
 
     class Meta:
