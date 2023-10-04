@@ -60,32 +60,32 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {% for club in clubs_leagues %}
+                                {% for standing in standings %}
                                     <tr>
                                         <td>
                                             1
                                         </td>
                                         <td>
-                                            <img src="{{ club.image.url}}" width='20px' alt="">
-                                            <span>{{ club.name }}</span>
+                                            <img src="{{ standing.club.image.url}}" width='20px' alt="cen">
+                                            <span>{{ standing.club.name }}</span>
                                         </td>
                                         <td>
-                                            2
+                                            {{standing.om}}
                                         </td>
                                         <td>
-                                            2
+                                            {{standing.win}}
                                         </td>
                                         <td>
-                                            2
+                                            {{standing.draw}}
                                         </td>
                                         <td>
-                                            2
+                                            {{standing.lost}}
                                         </td>
                                         <td>
-                                            2:2
+                                            {{standing.goal}}
                                         </td>
                                         <td>
-                                            2
+                                            {{standing.puan}}
                                         </td>
                                     </tr>
                                 {% endfor %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Leagues, Coach, Club, Matches, Player,News,Author, Transfers
+from .models import Leagues, Coach, Club, Matches, Player,News,Author, Transfers, Standings
 from django.db.models import Q
 
 def homepage(request):
@@ -23,12 +23,12 @@ def match_details(request, match_slug):
 
 def league_details(request, league_slug):
     leagues = get_object_or_404(Leagues, slug=league_slug)
-    clubs_leagues = Club.objects.filter(league=leagues).order_by('-puan')
     match_leagues = Matches.objects.filter(league=leagues).order_by('-time')
+    standings = Standings.objects.filter(club__league=leagues).order_by('-puan')
     return render(request, 'pages/league_details.html', {
         'leagues': leagues,
-        'clubs_leagues': clubs_leagues,
         'match_leagues': match_leagues,
+        'standings': standings,
 
     })
 

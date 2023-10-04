@@ -55,7 +55,6 @@ class Club(models.Model):
     league = models.ForeignKey(Leagues, on_delete=models.CASCADE, related_name='Ligler')
     image = models.ImageField(upload_to='news_club_images/', default='club_image.jpg')
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
-    puan = models.PositiveIntegerField(null=True)
     cup = models.ForeignKey(Cup, on_delete=models.CASCADE, related_name='kupa', null=True)
 
     class Meta:
@@ -215,3 +214,24 @@ class Transfers(models.Model):
 
     def __str__(self):
         return self.player.name
+
+
+
+class Standings(models.Model):
+    club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='kulup')
+    om = models.PositiveIntegerField()
+    win = models.PositiveIntegerField()
+    draw = models.PositiveIntegerField()
+    lost = models.PositiveIntegerField()
+    goal = models.PositiveIntegerField()
+    puan = models.PositiveIntegerField()
+
+
+    class Meta:
+        db_table = 'Standings'
+        verbose_name = 'Puan Durumu'
+        verbose_name_plural = 'Puan Durumu'
+
+    def __str__(self):
+        return self.club.name
+
