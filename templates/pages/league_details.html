@@ -101,27 +101,30 @@
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <span class="matches__time matches__time--live">8:00</span>
-                                        </td>
-                                        <td>
-                                            <div class="score score--vertical">
-                                                <div class="score__team score__team--vertical">
-                                                <a href="" target="_blank"><span>Real Valladolid</span></a>
-                                                    <img alt="" src="https://ssl.gstatic.com/onebox/media/sports/logos/HlIrXZRP96tv0H1uiiN0Jg_48x48.png">
+                                        {% for fikstur  in match_leagues%}
+                                            <td>
+                                                <span class="matches__time matches__time--live">{{fikstur.time}}</span>
+                                            </td>
+                                            <td>
+                                                <div class="score score--vertical">
+                                                    <div class="score__team score__team--vertical">
+                                                    <a href="" target="_blank"><span>{{fikstur.club1}}</span></a>
+                                                        <img alt="" src="{{fikstur.club1.image.url}}">
+                                                    </div>
+                                                    <p class="score__result score__result--vertical">
+                                                        <span class="score__goals">{{fikstur.skor}}</span>
+                                                    </p>
+                                                    <div class="score__team score__team--vertical">
+                                                        <img alt="" src="{{ fikstur.club2.image.url }}">
+                                                        <a href="" target="_blank"><span>{{fikstur.club2}}</span></a>
+                                                    </div>
                                                 </div>
-                                                <p class="score__result score__result--vertical">
-                                                    <span class="score__goals">3 : 2</span>
-                                                </p>
-                                                <div class="score__team score__team--vertical">
-                                                    <img alt="" src="https://ssl.gstatic.com/onebox/media/sports/logos/HlIrXZRP96tv0H1uiiN0Jg_48x48.png">
-                                                    <a href="" target="_blank"><span>Real Valladolid</span></a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span>Beşiktaş Tüpraş Stadyum</span>
-                                        </td>
+
+                                            </td>
+                                            <td>
+                                                <span>{{fikstur.stadium}}</span>
+                                            </td>
+                                        {% endfor %}
                                     </tr>
                                 </tbody>
                             </table>
