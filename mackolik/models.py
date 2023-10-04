@@ -3,6 +3,7 @@ from autoslug import AutoSlugField
 
 class Leagues(models.Model):
     name = models.CharField(max_length=120)
+    nationality = models.CharField(max_length=120, null=True)
     image = models.ImageField(upload_to='news_league_images/', default='league_image.jpg')
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
 
