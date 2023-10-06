@@ -125,95 +125,221 @@
                      <div class="divisoria"></div>
                      <div class="interior"></div>
                      <div class="penalty"></div>
-                    {% for player in matches.club1_team_line_up.all %}
                          <div class="player-one">
                             <div class="gk">1</div>
-                            <div class="player-detail">{{player.name}}</div>
+                            <div class="player-detail">
+                                {% if matches.club1_team_line_up.all.0 %}
+                                    {{ matches.club1_team_line_up.all.0.name }}
+                                {% else %}
+                                    Futbolcu
+                                {% endif %}</div>
                          </div>
                          <div class="player-two">
                             <div class="cb">2</div>
-                            <div class="player-detail">futbolcu</div>
+                            <div class="player-detail">
+                                {% if matches.club1_team_line_up.all.1 %}
+                                    {{ matches.club1_team_line_up.all.1.name }}
+                                {% else %}
+                                    Futbolcu
+                                {% endif %}</div>
                          </div>
                          <div class="player-three">
                             <div class="lb">3</div>
-                            <div class="player-detail">futbolcu</div>
+                            <div class="player-detail">
+                                {% if matches.club1_team_line_up.all.2 %}
+                                    {{ matches.club1_team_line_up.all.2.name }}
+                                {% else %}
+                                    Futbolcu
+                                {% endif %}
+                            </div>
                          </div>
                          <div class="player-four">
                             <div class="rb">4</div>
-                            <div class="player-detail">futbolcu</div>
+                            <div class="player-detail">
+                                {% if matches.club1_team_line_up.all.3 %}
+                                    {{ matches.club1_team_line_up.all.3.name }}
+                                {% else %}
+                                    Futbolcu
+                                {% endif %}
+                            </div>
                          </div>
                          <div class="player-five">
                             <div class="lwb">5</div>
-                            <div class="player-detail">futbolcu</div>
+                            <div class="player-detail">
+                                {% if matches.club1_team_line_up.all.4 %}
+                                    {{ matches.club1_team_line_up.all.4.name }}
+                                {% else %}
+                                    Futbolcu
+                                {% endif %}
+                            </div>
                          </div>
                          <div class="player-six">
                             <div class="n4">6</div>
-                            <div class="player-detail">futbolcu</div>
+                            <div class="player-detail">
+                                {% if matches.club1_team_line_up.all.5 %}
+                                    {{ matches.club1_team_line_up.all.5.name }}
+                                {% else %}
+                                    Futbolcu
+                                {% endif %}
+                            </div>
                          </div>
                          <div class="player-seven">
                             <div class="n3">7</div>
-                            <div class="player-detail">futbolcu</div>
+                            <div class="player-detail">
+                                {% if matches.club1_team_line_up.all.6 %}
+                                    {{ matches.club1_team_line_up.all.6.name }}
+                                {% else %}
+                                    Futbolcu
+                                {% endif %}
+                            </div>
                          </div>
                          <div class="player-eight">
                             <div class="rwb">8</div>
-                            <div class="player-detail">futbolcu</div>
+                            <div class="player-detail">
+                                {% if matches.club1_team_line_up.all.7 %}
+                                    {{ matches.club1_team_line_up.all.7.name }}
+                                {% else %}
+                                    Futbolcu
+                                {% endif %}
+                            </div>
                          </div>
                          <div class="player-nine">
                             <div class="lm">9</div>
-                            <div class="player-detail">futbolcu</div>
+                            <div class="player-detail">
+                                {% if matches.club1_team_line_up.all.8 %}
+                                    {{ matches.club1_team_line_up.all.8.name }}
+                                {% else %}
+                                    Futbolcu
+                                {% endif %}
+                            </div>
                          </div>
                          <div class="player-ten">
                             <div class="cm">10</div>
-                            <div class="player-detail">futbolcu</div>
+                            <div class="player-detail">
+                                {% if matches.club1_team_line_up.all.9 %}
+                                    {{ matches.club1_team_line_up.all.9.name }}
+                                {% else %}
+                                    Futbolcu
+                                {% endif %}
+                            </div>
                          </div>
                          <div class="player-eleven">
                             <div class="rm">11</div>
-                            <div class="player-detail">futbolcu</div>
+                            <div class="player-detail">
+                                {% if matches.club1_team_line_up.all.10 %}
+                                    {{ matches.club1_team_line_up.all.10.name }}
+                                {% else %}
+                                    Futbolcu
+                                {% endif %}</div>
                          </div>
-                    {% endfor %}
                      <div class="player-twelve">
                         <div class="cf">1</div>
-                        <div class="player-detail">futbolcu</div>
+                        <div class="player-detail">
+                            {% if matches.club2_team_line_up.all.0 %}
+                                    {{ matches.club2_team_line_up.all.0.name }}
+                            {% else %}
+                                    Futbolcu
+                            {% endif %}
+                        </div>
                      </div>
                      <div class="player-thirteen">
                         <div class="wl">2</div>
-                        <div class="player-detail">futbolcu</div>
+                        <div class="player-detail">
+                            {% if matches.club2_team_line_up.all.1 %}
+                                    {{ matches.club2_team_line_up.all.1.name }}
+                            {% else %}
+                                    Futbolcu
+                            {% endif %}
+                        </div>
                      </div>
                      <div class="player-fourteen">
                         <div class="n1">3</div>
-                        <div class="player-detail">futbolcu</div>
+                        <div class="player-detail">
+                            {% if matches.club2_team_line_up.all.2 %}
+                                    {{ matches.club2_team_line_up.all.2.name }}
+                            {% else %}
+                                    Futbolcu
+                            {% endif %}
+                        </div>
                      </div>
                      <div class="player-fifteen">
                         <div class="n2">4</div>
-                        <div class="player-detail">futbolcu</div>
+                        <div class="player-detail">
+                            {% if matches.club2_team_line_up.all.3 %}
+                                    {{ matches.club2_team_line_up.all.3.name }}
+                            {% else %}
+                                    Futbolcu
+                            {% endif %}
+                        </div>
                      </div>
                      <div class="player-sixteen">
                         <div class="wr">5</div>
-                        <div class="player-detail">futbolcu</div>
+                        <div class="player-detail">
+                            {% if matches.club2_team_line_up.all.4 %}
+                                    {{ matches.club2_team_line_up.all.4.name }}
+                            {% else %}
+                                    Futbolcu
+                            {% endif %}
+                        </div>
                      </div>
                      <div class="player-seventeen">
                         <div class="amr">6</div>
-                        <div class="player-detail">futbolcu</div>
+                        <div class="player-detail">
+                            {% if matches.club2_team_line_up.all.5 %}
+                                    {{ matches.club2_team_line_up.all.5.name }}
+                            {% else %}
+                                    Futbolcu
+                            {% endif %}
+                        </div>
                      </div>
                      <div class="player-eighteen">
                         <div class="am">7</div>
-                        <div class="player-detail">futbolcu</div>
+                        <div class="player-detail">
+                            {% if matches.club2_team_line_up.all.6 %}
+                                    {{ matches.club2_team_line_up.all.6.name }}
+                            {% else %}
+                                    Futbolcu
+                            {% endif %}
+                        </div>
                      </div>
                      <div class="player-nineteen">
                         <div class="aml">8</div>
-                        <div class="player-detail">futbolcu</div>
+                        <div class="player-detail">
+                            {% if matches.club2_team_line_up.all.7 %}
+                                    {{ matches.club2_team_line_up.all.7.name }}
+                            {% else %}
+                                    Futbolcu
+                            {% endif %}
+                        </div>
                      </div>
                      <div class="player-twenty">
                         <div class="n6">9</div>
-                        <div class="player-detail">futbolcu</div>
+                        <div class="player-detail">
+                            {% if matches.club2_team_line_up.all.8 %}
+                                    {{ matches.club2_team_line_up.all.8.name }}
+                            {% else %}
+                                    Futbolcu
+                            {% endif %}</div>
                      </div>
                      <div class="player-twenty-one">
                         <div class="n5">10</div>
-                        <div class="player-detail">futbolcu</div>
+                        <div class="player-detail">
+                            {% if matches.club2_team_line_up.all.9 %}
+                                    {{ matches.club2_team_line_up.all.9.name }}
+                            {% else %}
+                                    Futbolcu
+                            {% endif %}
+                        </div>
                      </div>
                      <div class="player-twenty-two">
                         <div class="n7">11</div>
-                        <div class="player-detail">futbolcu</div>
+                        <div class="player-detail">
+                            {% if matches.club2_team_line_up.all.10 %}
+                                    {{ matches.club2_team_line_up.all.10.name }}
+                            {% else %}
+                                    Futbolcu
+                            {% endif %}
+                        </div>
                      </div>
                   </div>
                  </div>
