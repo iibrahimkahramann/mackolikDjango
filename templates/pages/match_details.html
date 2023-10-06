@@ -1,62 +1,245 @@
 {% extends 'base.html' %}
 {% load static%}
 {% block content %}
-  <div class="container">
-      <!-- code here -->
-      <div class="match">
-          <div class="match-header">
-              <div class="match-status"></div>
-              <div class="match-tournament"><img src="{{ maclar.league.image.url }}" />{{ maclar.league}}</div>
-              <div class="match-actions">
-              </div>
-          </div>
-        <div class="match-content">
-            <div class="column">
-                <div class="team team--home">
-                    <div class="team-logo">
-                        <img src="{{ maclar.club1.image.url }}" alt="{{ maclar.club1.name }} Logo" />
+<section class="match-section">
+            <div class="match-detail-main">
+                <h5>Lusail Stadium</h5>
+                <div class="match-detail-score-team">
+                    <div class="team-left">
+                        <div class="team-main">
+                            <img src="../assets/img/indir.png" alt="">
+                            <span>Portugal</span>
+                        </div>
+                        <!-- <div class="player-goals">
+                            <span>C.Ronaldo</span>
+                            <span>15'</span>
+                        </div>
+                        <div class="player-goals">
+                            <span>C.Ronaldo</span>
+                            <span>15'</span>
+                        </div>
+                        <div class="player-goals">
+                            <span>C.Ronaldo</span>
+                            <span>15'</span>
+                        </div>
+                        <div class="player-goals">
+                            <span>C.Ronaldo</span>
+                            <span>15'</span>
+                        </div>
+                        <div class="player-goals">
+                            <span>C.Ronaldo</span>
+                            <span>15'</span>
+                        </div> -->
                     </div>
-                    <h2 class="team-name"><a href="{% url 'club_details' club_slug=maclar.club1.slug%}">{{ maclar.club1.name }}</a></h2>
-                </div>
-            </div>
-            <div class="column">
-                <div class="match-details">
-                    <div class="match-date">
-                        <strong>{{ maclar.time }}</strong>
-                    </div>
-                    <div class="match-score">
-                        <span class="match-score-number">{{ maclar.skor}}</span>
-                    </div>
-                    <div class="match-time-lapsed">
+                    <div class="team-score">
+                        <span class="score-left">
+                            2
+                        </span>
+                        <span>FT</span>
+                        <span class="score-right">
+                            3
+                        </span>
 
                     </div>
-                    <div class="match-referee">
-                        Hakem: <strong>{{ maclar.referee}}</strong>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="team team--away">
-                    <div class="team-logo">
-                        <img src="{{ maclar.club2.image.url }}" alt="{{ maclar.club2.name }} Logo" />
-                    </div>
-                    <h2 class="team-name"><a href="{% url 'club_details' club_slug=maclar.club2.slug%}">{{ maclar.club2.name }}</a></h2>
-                </div>
-            </div>
-        </div>
-        <h2>{{ maclar.club1.name }} İlk 11</h2>
-        <ul>
-            {% for player in maclar.club1_team_line_up.all %}
-                <li>{{ player.name }}</li>
-            {% endfor %}
-        </ul>
+                    <div class="team-right">
+                        <div class="team-main">
+                            <span>Portugal</span>
+                            <img src="../assets/img/indir.png" alt="">
 
-        <h2>{{ maclar.club2.name }} İlk 11</h2>
-        <ul>
-            {% for player in maclar.club2_team_line_up.all %}
-                <li>{{ player.name }}</li>
-            {% endfor %}
-        </ul>
-      </div>
-  </div>
+                        </div>
+                        <!-- <div class="player-goals">
+                            <span>C.Ronaldo</span>
+                            <span>15'</span>
+                        </div> -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="match-goals-details">
+                <h3>Match Details</h3>
+                <div class="team-name">
+                    <span>Portugal</span>
+                    <span>Portugal</span>
+                </div>
+                <div class="goals-team">
+                    <div class="team-left">
+                        <div class="goals-detail">
+                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
+                            <span><strong>15'</strong></span>
+                        </div>
+                        <div class="goals-detail">
+                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
+                            <span><strong>15'</strong></span>
+                        </div>
+                    </div>
+                    <div class="team-right">
+                        <div class="goals-detail">
+                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
+                            <span><strong>15'</strong></span>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="hero match-man">
+            <div class="hero__img">
+                <img alt="" src="https://www.footyrenders.com/render/kylian-mbappe-48.png">
+            </div>
+            <h2 class="hero__title">Man of The Match
+            </h2>
+            <span class="hero__title">Kylian Mbappé
+            </span>
+        </section>
+        <section class="line-up">
+            <div class="match-goals-details">
+                <h3>Team Line Up</h3>
+                <div class="team-name">
+                    <span>Portugal</span>
+                    <span>Portugal</span>
+                </div>
+                <div class="goals-team">
+                    <div class="team-left">
+                        <div class="goals-detail">
+                            <span><strong>GK </strong></span>
+                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
+                        </div>
+                        <div class="goals-detail">
+                            <span><strong>GK </strong></span>
+                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
+                        </div>
+                    </div>
+                    <div class="team-right">
+                        <div class="goals-detail">
+                            <span><strong>GK </strong></span>
+                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="match-goals-details">
+                <h3>Bench</h3>
+                <div class="team-name">
+                    <span>Portugal</span>
+                    <span>Portugal</span>
+                </div>
+                <div class="goals-team">
+                    <div class="team-left">
+                        <div class="goals-detail">
+                            <span><strong>GK </strong></span>
+                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
+                        </div>
+                        <div class="goals-detail">
+                            <span><strong>GK </strong></span>
+                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
+                        </div>
+                    </div>
+                    <div class="team-right">
+                        <div class="goals-detail">
+                            <span><strong>GK </strong></span>
+                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="player-position">
+            <div class="wrapper">
+                <div class="campo">
+                     <div class="semi1"></div>
+                     <div class="semi2"></div>
+                     <div class="divisoria"></div>
+                     <div class="interior"></div>
+                     <div class="penalty"></div>
+                     <div class="player-one">
+                        <div class="gk">1</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-two">
+                        <div class="cb">2</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-three">
+                        <div class="lb">3</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-four">
+                        <div class="rb">4</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-five">
+                        <div class="lwb">5</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-six">
+                        <div class="n4">6</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-seven">
+                        <div class="n3">7</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-eight">
+                        <div class="rwb">8</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-nine">
+                        <div class="lm">9</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-ten">
+                        <div class="cm">10</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-eleven">
+                        <div class="rm">11</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-twelve">
+                        <div class="cf">1</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-thirteen">
+                        <div class="wl">2</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-fourteen">
+                        <div class="n1">3</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-fifteen">
+                        <div class="n2">4</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-sixteen">
+                        <div class="wr">5</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-seventeen">
+                        <div class="amr">6</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-eighteen">
+                        <div class="am">7</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-nineteen">
+                        <div class="aml">8</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-twenty">
+                        <div class="n6">9</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-twenty-one">
+                        <div class="n5">10</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                     <div class="player-twenty-two">
+                        <div class="n7">11</div>
+                        <div class="player-detail">futbolcu</div>
+                     </div>
+                  </div>
+                 </div>
+        </section>
+
 {% endblock %}
