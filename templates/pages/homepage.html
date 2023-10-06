@@ -71,7 +71,7 @@
                                                             <img alt="" src="{{ match.club1.image.url}}">
                                                         </div>
                                                         <p class="score__result score__result--vertical">
-                                                            <span class="score__goals"><a href="{% url 'match_details' match_slug=match.slug %}">{{ match.skor}}</a></span>
+                                                            <span class="score__goals"><a href="{% url 'match_details' match_slug=match.slug %}">{{ match.club1_skor}} : {{ match.club2_skor}}</a></span>
                                                         </p>
                                                         <div class="score__team score__team--vertical">
                                                             <img alt="" src="{{ match.club2.image.url}}">

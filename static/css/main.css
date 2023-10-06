@@ -90,7 +90,7 @@ body {
   text-decoration: none;
 }
 .nav .nav-link.active {
-  color: #613cea;
+  color: #613cea !important;
   font-weight: 500;
 }
 .nav .nav-link:hover {
@@ -777,6 +777,7 @@ body {
   gap: 10px;
   margin-bottom: 20px;
   padding-inline: 10px;
+  height: 50px;
 }
 .match-detail-main .team-left {
   display: flex;

@@ -3,64 +3,39 @@
 {% block content %}
 <section class="match-section">
             <div class="match-detail-main">
-                <h5>Lusail Stadium</h5>
+                <h5>{{matches.stadium}}</h5>
                 <div class="match-detail-score-team">
                     <div class="team-left">
                         <div class="team-main">
-                            <img src="../assets/img/indir.png" alt="">
-                            <span>Portugal</span>
+                            <img src="{{matches.club1.image.url }}" width="50px" alt="">
+                            <span>{{matches.club1}}</span>
                         </div>
-                        <!-- <div class="player-goals">
-                            <span>C.Ronaldo</span>
-                            <span>15'</span>
-                        </div>
-                        <div class="player-goals">
-                            <span>C.Ronaldo</span>
-                            <span>15'</span>
-                        </div>
-                        <div class="player-goals">
-                            <span>C.Ronaldo</span>
-                            <span>15'</span>
-                        </div>
-                        <div class="player-goals">
-                            <span>C.Ronaldo</span>
-                            <span>15'</span>
-                        </div>
-                        <div class="player-goals">
-                            <span>C.Ronaldo</span>
-                            <span>15'</span>
-                        </div> -->
                     </div>
                     <div class="team-score">
                         <span class="score-left">
-                            2
+                            {{ matches.club1_skor}}
                         </span>
                         <span>FT</span>
                         <span class="score-right">
-                            3
+                            {{ matches.club2_skor}}
                         </span>
 
                     </div>
                     <div class="team-right">
                         <div class="team-main">
-                            <span>Portugal</span>
-                            <img src="../assets/img/indir.png" alt="">
-
+                            <span>{{matches.club2}}</span>
+                            <img src="{{matches.club2.image.url }}" width="50px" alt="">
                         </div>
-                        <!-- <div class="player-goals">
-                            <span>C.Ronaldo</span>
-                            <span>15'</span>
-                        </div> -->
                     </div>
                 </div>
 
             </div>
         </section>
         <section class="match-goals-details">
-                <h3>Match Details</h3>
+                <h3>Maç Detay</h3>
                 <div class="team-name">
-                    <span>Portugal</span>
-                    <span>Portugal</span>
+                    <span>{{matches.club1}}</span>
+                    <span>{{matches.club2}}</span>
                 </div>
                 <div class="goals-team">
                     <div class="team-left">
@@ -85,42 +60,42 @@
             <div class="hero__img">
                 <img alt="" src="https://www.footyrenders.com/render/kylian-mbappe-48.png">
             </div>
-            <h2 class="hero__title">Man of The Match
+            <h2 class="hero__title">Maçın Adamı !
             </h2>
             <span class="hero__title">Kylian Mbappé
             </span>
         </section>
         <section class="line-up">
             <div class="match-goals-details">
-                <h3>Team Line Up</h3>
+                <h3>İlk 11</h3>
                 <div class="team-name">
-                    <span>Portugal</span>
-                    <span>Portugal</span>
+                    <span>{{matches.club1}}</span>
+                    <span>{{matches.club2}}</span>
                 </div>
                 <div class="goals-team">
                     <div class="team-left">
-                        <div class="goals-detail">
-                            <span><strong>GK </strong></span>
-                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
-                        </div>
-                        <div class="goals-detail">
-                            <span><strong>GK </strong></span>
-                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
-                        </div>
+                        {% for player in matches.club1_team_line_up.all %}
+                            <div class="goals-detail">
+                                <span><strong>{{player.pozition}} </strong></span>
+                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                            </div>
+                        {% endfor %}
                     </div>
                     <div class="team-right">
-                        <div class="goals-detail">
-                            <span><strong>GK </strong></span>
-                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
-                        </div>
+                        {% for player in matches.club2_team_line_up.all %}
+                            <div class="goals-detail">
+                                <span><strong>{{player.pozition}} </strong></span>
+                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
             <div class="match-goals-details">
-                <h3>Bench</h3>
+                <h3>Yedekler</h3>
                 <div class="team-name">
-                    <span>Portugal</span>
-                    <span>Portugal</span>
+                    <span>{{matches.club1}}</span>
+                    <span>{{matches.club2}}</span>
                 </div>
                 <div class="goals-team">
                     <div class="team-left">
@@ -150,50 +125,52 @@
                      <div class="divisoria"></div>
                      <div class="interior"></div>
                      <div class="penalty"></div>
-                     <div class="player-one">
-                        <div class="gk">1</div>
-                        <div class="player-detail">futbolcu</div>
-                     </div>
-                     <div class="player-two">
-                        <div class="cb">2</div>
-                        <div class="player-detail">futbolcu</div>
-                     </div>
-                     <div class="player-three">
-                        <div class="lb">3</div>
-                        <div class="player-detail">futbolcu</div>
-                     </div>
-                     <div class="player-four">
-                        <div class="rb">4</div>
-                        <div class="player-detail">futbolcu</div>
-                     </div>
-                     <div class="player-five">
-                        <div class="lwb">5</div>
-                        <div class="player-detail">futbolcu</div>
-                     </div>
-                     <div class="player-six">
-                        <div class="n4">6</div>
-                        <div class="player-detail">futbolcu</div>
-                     </div>
-                     <div class="player-seven">
-                        <div class="n3">7</div>
-                        <div class="player-detail">futbolcu</div>
-                     </div>
-                     <div class="player-eight">
-                        <div class="rwb">8</div>
-                        <div class="player-detail">futbolcu</div>
-                     </div>
-                     <div class="player-nine">
-                        <div class="lm">9</div>
-                        <div class="player-detail">futbolcu</div>
-                     </div>
-                     <div class="player-ten">
-                        <div class="cm">10</div>
-                        <div class="player-detail">futbolcu</div>
-                     </div>
-                     <div class="player-eleven">
-                        <div class="rm">11</div>
-                        <div class="player-detail">futbolcu</div>
-                     </div>
+                    {% for player in matches.club1_team_line_up.all %}
+                         <div class="player-one">
+                            <div class="gk">1</div>
+                            <div class="player-detail">{{player.name}}</div>
+                         </div>
+                         <div class="player-two">
+                            <div class="cb">2</div>
+                            <div class="player-detail">futbolcu</div>
+                         </div>
+                         <div class="player-three">
+                            <div class="lb">3</div>
+                            <div class="player-detail">futbolcu</div>
+                         </div>
+                         <div class="player-four">
+                            <div class="rb">4</div>
+                            <div class="player-detail">futbolcu</div>
+                         </div>
+                         <div class="player-five">
+                            <div class="lwb">5</div>
+                            <div class="player-detail">futbolcu</div>
+                         </div>
+                         <div class="player-six">
+                            <div class="n4">6</div>
+                            <div class="player-detail">futbolcu</div>
+                         </div>
+                         <div class="player-seven">
+                            <div class="n3">7</div>
+                            <div class="player-detail">futbolcu</div>
+                         </div>
+                         <div class="player-eight">
+                            <div class="rwb">8</div>
+                            <div class="player-detail">futbolcu</div>
+                         </div>
+                         <div class="player-nine">
+                            <div class="lm">9</div>
+                            <div class="player-detail">futbolcu</div>
+                         </div>
+                         <div class="player-ten">
+                            <div class="cm">10</div>
+                            <div class="player-detail">futbolcu</div>
+                         </div>
+                         <div class="player-eleven">
+                            <div class="rm">11</div>
+                            <div class="player-detail">futbolcu</div>
+                         </div>
+                    {% endfor %}
                      <div class="player-twelve">
                         <div class="cf">1</div>
                         <div class="player-detail">futbolcu</div>

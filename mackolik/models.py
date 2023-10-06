@@ -94,7 +94,7 @@ class Player(models.Model):
     numbers = models.PositiveIntegerField()
     club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='kulüp')
     image = models.ImageField(upload_to='news_player_images/', default='player_image.jpg')
-
+    pozition = models.CharField(max_length=20, null=True)
 
 
     class Meta:
@@ -135,7 +135,8 @@ class Matches(models.Model):
     club2 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='kulüp2')
     time = models.FloatField()
     stadium = models.CharField(max_length=120)
-    skor = models.CharField(max_length=120)
+    club1_skor = models.CharField(max_length=120)
+    club2_skor = models.CharField(max_length=120, null=True)
     slug = AutoSlugField(populate_from='league', unique=True, editable=True, blank=True)
     league = models.ForeignKey(Leagues, on_delete=models.CASCADE, related_name='lig')
     referee =models.ForeignKey(Referee, on_delete=models.CASCADE, related_name='hakem')
