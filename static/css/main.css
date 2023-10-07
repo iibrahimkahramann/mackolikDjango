@@ -745,7 +745,7 @@ body {
   color: white;
   background-image: url(../img/101407\,bayrak.png);
   background-position: center;
-  background-size: cover cover;
+  background-size: cover;
   padding-block: 100px;
   border-radius: 8px;
   margin-bottom: 30px;

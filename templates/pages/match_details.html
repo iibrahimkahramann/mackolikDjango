@@ -39,31 +39,32 @@
                 </div>
                 <div class="goals-team">
                     <div class="team-left">
-                        <div class="goals-detail">
-                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
-                            <span><strong>15'</strong></span>
-                        </div>
-                        <div class="goals-detail">
-                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
-                            <span><strong>15'</strong></span>
-                        </div>
+                        {% for player in matches.club1_team_goals.all %}
+                            <div class="goals-detail">
+                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                                <span><strong>15'</strong></span>
+                            </div>
+                        {% endfor %}
                     </div>
                     <div class="team-right">
-                        <div class="goals-detail">
-                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
-                            <span><strong>15'</strong></span>
-                        </div>
+                        {% for player in matches.club2_team_goals.all %}
+                            <div class="goals-detail">
+                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                                <span><strong>15'</strong></span>
+                            </div>
+                        {% endfor%}
                     </div>
                 </div>
         </section>
         <section class="hero match-man">
-            <div class="hero__img">
-                <img alt="" src="https://www.footyrenders.com/render/kylian-mbappe-48.png">
-            </div>
-            <h2 class="hero__title">Maçın Adamı !
-            </h2>
-            <span class="hero__title">Kylian Mbappé
-            </span>
+            {% for player in matches.man_of_the_match.all %}
+                <div class="hero__img">
+                    <img alt="" src="{{player.image.url}}">
+                </div>
+                    <h2 class="hero__title">Maçın Adamı !
+                    </h2>
+                    <span class="hero__title">{{player.name}}</span>
+            {% endfor %}
         </section>
         <section class="line-up">
             <div class="match-goals-details">
@@ -99,20 +100,20 @@
                 </div>
                 <div class="goals-team">
                     <div class="team-left">
-                        <div class="goals-detail">
-                            <span><strong>GK </strong></span>
-                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
-                        </div>
-                        <div class="goals-detail">
-                            <span><strong>GK </strong></span>
-                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
-                        </div>
+                        {% for player in matches.club1_team_reserves.all %}
+                            <div class="goals-detail">
+                                <span><strong>{{player.pozition}} </strong></span>
+                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                            </div>
+                        {% endfor %}
                     </div>
                     <div class="team-right">
-                        <div class="goals-detail">
-                            <span><strong>GK </strong></span>
-                            <a href="player-detail.html"><span>C.Ronaldo </span></a>
-                        </div>
+                        {% for player in matches.club1_team_reserves.all %}
+                            <div class="goals-detail">
+                                <span><strong>{{player.pozition}} </strong></span>
+                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
