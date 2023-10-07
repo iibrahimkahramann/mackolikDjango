@@ -19,7 +19,7 @@ class Nationality(models.Model):
 
 class Leagues(models.Model):
     name = models.CharField(max_length=120)
-    nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE, related_name='ulke', null=True)
+    nationality = models.ManyToManyField(Nationality, related_name='league_nationality', blank=True)
     image = models.ImageField(upload_to='news_league_images/', default='league_image.jpg')
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
     history = models.TextField(null=True)
@@ -49,7 +49,7 @@ class Cup(models.Model):
 
 class Club(models.Model):
     name = models.CharField(max_length=120, unique=True)
-    country = models.CharField(max_length=120)
+    nationality = models.ManyToManyField(Nationality, related_name='club_nationality', blank=True)
     stadium = models.CharField(max_length=120, unique=True)
     coach = models.ForeignKey('Coach', on_delete=models.CASCADE, related_name='kulüp')   #coach modelini referans veriyor önde tanımlanmadıgı için
     league = models.ForeignKey(Leagues, on_delete=models.CASCADE, related_name='Ligler')
@@ -69,7 +69,7 @@ class Coach(models.Model):
     name = models.CharField(max_length=120)
     age = models.PositiveIntegerField()
     date_of_birth = models.DateField()
-    nationality = models.CharField(max_length=120)
+    nationality = models.ManyToManyField(Nationality, related_name='coach_nationality', blank=True)
     image = models.ImageField(upload_to='news_coach_images/', default='coach_image.jpg')
 
     class Meta:
@@ -87,7 +87,7 @@ class Player(models.Model):
     name = models.CharField(max_length=120)
     age = models.PositiveIntegerField()
     date_of_birth = models.DateField()
-    nationality = models.CharField(max_length=120)
+    nationality = models.ManyToManyField(Nationality, related_name='player_nationality', blank=True)
     foot = models.CharField(max_length=120)
     size = models.FloatField()
     weight = models.PositiveIntegerField()
@@ -111,7 +111,7 @@ class Player(models.Model):
 class Referee(models.Model):
     name = models.CharField(max_length=120)
     age = models.PositiveIntegerField()
-    nationality = models.CharField(max_length=120)
+    nationality = models.ManyToManyField(Nationality, related_name='referee_nationality', blank=True)
     image = models.ImageField(upload_to='news_referee_images/', default='referee_image.jpg')
 
 
