@@ -2,27 +2,284 @@
 {% load static %}
 {%block content%}
 
-<main class="main">
-        <section class="team-info">
-            <h2>{{ kulupler.name }}</h2>
-            <img src="{{ kulupler.image.url}}" alt="Takım Fotoğrafı">
-            <p>Stadyumu: {{ kulupler.stadium}}</p>
-            <p>Teknik Direktörü: {{kulupler.coach}}</p>
-            <p>Kupalar: {{kulupler.cup}}</p>
-        </section>
-        <section class="team-players">
-            <h2><a href="{% url 'staff' kulupler.slug %}">Takım Kadrosu</a></h2>
-            <h2><a href="{% url 'transfers' club_slug=kulupler.slug %}">Transferler</a></h2>
-            <h2>Fikstür</h2>
-            <ul>
-                {% for mac in maclar %}
-                    <li>{{ mac.time }} - {{ mac.club1.name }} vs. {{ mac.club2.name }} (Skor: {{ mac.skor }})</li>
-                {% endfor %}
-            </ul>
+<main class="lig-section">
+            <section class="hero-lig">
+                <img src="../assets/img/Logo_of_Beşiktaş_JK.svg.png" alt="Premier Lig">
+                <div class="lig-main">
+                    <h1>Beşiktaş</h1>
+                    <div class="lig-main-country">
+                        <img src="../assets/img/101407,bayrak.png" alt="">
+                        <span>Türkiye</span>
+                    </div>
+                    <div class="team-main">
+                        <span>Beşiktaş Tüpraş Stadyum,</span>
+                        <span>Şenol Güneş</span>
+                    </div>
+                </div>
+            </section>
+    </main>
+    <div class="card">
+        <div class="card__body matches__data">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-puan-tab" data-bs-toggle="pill" data-bs-target="#pills-puan" type="button" role="tab" aria-controls="pills-puan" aria-selected="true">Puan Durumu</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link " id="pills-fikstur-tab" data-bs-toggle="pill" data-bs-target="#pills-fikstur" type="button" role="tab" aria-controls="pills-fikstur" aria-selected="false">Fikstür</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link " id="pills-kadro-tab" data-bs-toggle="pill" data-bs-target="#pills-kadro" type="button" role="tab" aria-controls="pills-kadro" aria-selected="false">Kadro</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="pills-kupa-tab" data-bs-toggle="pill" data-bs-target="#pills-kupa" type="button" role="tab" aria-controls="pills-kupa" aria-selected="false">Kupalar</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="pills-transfer-tab" data-bs-toggle="pill" data-bs-target="#pills-transfer" type="button" role="tab" aria-controls="pills-transfer" aria-selected="false">Transferler</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-puan" role="tabpanel" aria-labelledby="pills-puan-tab">
+                    <div class="card__body matches-fikstur matches__data">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>
+                                        Takım
+                                    </th>
+                                    <th>
+                                        P
+                                    </th>
+                                    <th>
+                                        W
+                                    </th>
+                                    <th>
+                                        D
+                                    </th>
+                                    <th>
+                                        L
+                                    </th>
+                                    <th>
+                                        Goals
+                                    </th>
+                                    <th>
+                                        PTS
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        <img src="../assets/img/indir.png" width='20px' alt="">
+                                        <span>Fenerbahçe</span>
+                                    </td>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        2:2
+                                    </td>
+                                    <td>
+                                        2
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade matches" id="pills-fikstur" role="tabpanel" aria-labelledby="pills-fikstur-tab">
+                    <div class="card__body matches__data">
+                        <div class="card-main-macthes">
+                            <span>Trendyol Süper Lig</span>
+                        </div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="matches__time matches__time--live">8:00</span>
+                                    </td>
+                                    <td>
+                                        <div class="score score--vertical">
+                                            <div class="score__team score__team--vertical">
+                                            <a href="" target="_blank"><span>Real Valladolid</span></a>
+                                                <img alt="" src="https://ssl.gstatic.com/onebox/media/sports/logos/HlIrXZRP96tv0H1uiiN0Jg_48x48.png">
+                                            </div>
+                                            <p class="score__result score__result--vertical">
+                                                <span class="score__goals">3 : 2</span>
+                                            </p>
+                                            <div class="score__team score__team--vertical">
+                                                <img alt="" src="https://ssl.gstatic.com/onebox/media/sports/logos/HlIrXZRP96tv0H1uiiN0Jg_48x48.png">
+                                                <a href="" target="_blank"><span>Real Valladolid</span></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span>Beşiktaş Tüpraş Stadyum</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade " id="pills-kadro" role="tabpanel" aria-labelledby="pills-kadro-tab">
+                    <div class="card__body matches-fikstur matches__data">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        No
+                                    </th>
+                                    <th>
+                                        Player
+                                    </th>
+                                    <th>
+                                        Country
+                                    </th>
+                                    <th>
+                                        Poz
+                                    </th>
+                                    <th>
+                                        Age
+                                    </th>
+                                    <th>
+                                        Goals
+                                    </th>
+                                    <!-- <th>
+                                        Goals
+                                    </th>
+                                    <th>
+                                        PTS
+                                    </th>  -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        <a href="player-detail.html"><span>Ronaldo</span></a>
+                                    </td>
+                                    <td>
+                                        Türkiye
+                                    </td>
+                                    <td>
+                                        Orta Saha
+                                    </td>
+                                    <td>
+                                        44
+                                    </td>
+                                    <td>
+                                        2
+                                    </td>
+                                    <!-- <td>
+                                        2:2
+                                    </td>
+                                    <td>
+                                        2
+                                    </td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-kupa" role="tabpanel" aria-labelledby="pills-kupa-tab">
+                    <div class="card__body matches-fikstur matches__data">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Kupa Sayısı
+                                    </th>
+                                    <th>
+                                        Kupa
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        14
+                                    </td>
+                                    <td>
+                                        <span>Trendyol Super Lig</span>
+                                    </td>
 
-
-        </section>
-</main>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade " id="pills-transfer" role="tabpanel" aria-labelledby="pills-transfer-tab">
+                    <div class="card__body matches-fikstur matches__data">
+                        <table>
+                            <thead>
+                            <h4>Gelen Oyuncular</h2>
+                                <tr>
+                                    <th>
+                                       Oyuncu
+                                    </th>
+                                    <th>
+                                        Poz
+                                    </th>
+                                    <th>
+                                        Yaş
+                                    </th>
+                                    <th>
+                                        Takım
+                                    </th>
+                                    <th>
+                                        Tarih
+                                    </th>
+                                    <th>
+                                        Kontrat
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="../assets/img/indir.png" width="20px" alt="">
+                                        <span>Gökhan İnler</span>
+                                    </td>
+                                    <td>
+                                        ORT
+                                    </td>
+                                    <td>
+                                        39
+                                    </td>
+                                    <td>
+                                        <img src="../assets/img/indir.png" width="20px" alt="">
+                                        <span>Adana Demirspor</span>
+                                    </td>
+                                    <td>
+                                        14/09/2023
+                                    </td>
+                                    <td>
+                                        Serbest Transfer
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </div>
 
 {%endblock%}
 
