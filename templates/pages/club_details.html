@@ -251,24 +251,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            {% for transfer in transfer.tok.all%}
+                            {% for transfer in transfers%}
                                 <tr>
                                     <td>
                                         <img src="../assets/img/indir.png" width="20px" alt="">
-                                        <span>{{transfer.name}}</span>
+                                    <span>{{ transfer.player.all|join:', ' }}</span>
                                     </td>
                                     <td>
-                                        {{transfer.player.pozition}}
+                                        {{ transfer.player.first.pozition }}
                                     </td>
                                     <td>
-                                        {{tansfer.player.age}}
+                                        {{ transfer.player.first.age }}
                                     </td>
                                     <td>
                                         <img src="../assets/img/indir.png" width="20px" alt="">
-                                        <span>{{transfer.ok}}</span>
+                                        <span>{{ transfer.ok.first.name }}</span>
                                     </td>
                                     <td>
-                                        14/09/2023
+                                        {{ transfer.time|date:"d/m/Y" }}
                                     </td>
                                     <td>
                                         Serbest Transfer
