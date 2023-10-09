@@ -8,12 +8,14 @@
                 <div class="lig-main">
                     <h1>{{clubs.name}}</h1>
                     <div class="lig-main-country">
-                        <img src="{{clubs.nationalty.image.url}}" alt="">
-                        <span>{{clubs.country}}</span>
+                        {% for country in clubs.nationality.all%}
+                            <img src="{{country.image.url}}" alt="">
+                            <span>{{country.name}}</span>
+                        {% endfor %}
                     </div>
                     <div class="team-main">
-                        <span>Beşiktaş Tüpraş Stadyum,</span>
-                        <span>Şenol Güneş</span>
+                        <span>{{clubs.stadium}},</span>
+                        <span>{{clubs.coach}}</span>
                     </div>
                 </div>
             </section>
@@ -168,30 +170,26 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    {% for player in players%}
                                     <td>
-                                        1
+                                        {{player.numbers}}
                                     </td>
                                     <td>
-                                        <a href="player-detail.html"><span>Ronaldo</span></a>
+                                        <a href="player-detail.html"><span>{{player.name}}</span></a>
                                     </td>
                                     <td>
-                                        Türkiye
+                                        {{player.nationality.name}}
                                     </td>
                                     <td>
-                                        Orta Saha
+                                        {{player.pozition}}
                                     </td>
                                     <td>
-                                        44
-                                    </td>
-                                    <td>
-                                        2
-                                    </td>
-                                    <!-- <td>
-                                        2:2
+                                        {{player.age}}
                                     </td>
                                     <td>
                                         2
-                                    </td> -->
+                                    </td>
+                                    {% endfor %}
                                 </tr>
                             </tbody>
                         </table>

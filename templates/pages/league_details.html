@@ -8,8 +8,10 @@
                     <div class="lig-main">
                         <h1>{{leagues.name}}</h1>
                         <div class="lig-main-country">
-                            <img src="{{leagues.nationality.image.url}}" alt="">
-                            <span>{{leagues.nationality}}</span>
+                            {% for country in leagues.nationality.all%}
+                            <img src="{{country.image.url}}" alt="">
+                            <span>{{country.name}}</span>
+                            {% endfor %}
                         </div>
                     </div>
                 </section>

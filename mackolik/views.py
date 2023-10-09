@@ -37,7 +37,7 @@ def league_details(request, league_slug):
 
 def club_details(request, club_slug):
     clubs = get_object_or_404(Club, slug=club_slug)
-    players = Player.objects.all()
+    players = Player.objects.filter(club=clubs)
     matches = Matches.objects.filter(Q(club1=clubs) | Q(club2=clubs))
     return render(request, 'pages/club_details.html', {
         'clubs': clubs,
