@@ -110,33 +110,35 @@
                         <div class="card-main-macthes">
                             <span>Trendyol Süper Lig</span>
                         </div>
+                        {% for match in matches %}
                         <table>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <span class="matches__time matches__time--live">8:00</span>
+                                        <span class="matches__time matches__time--live">{{match.time}}</span>
                                     </td>
                                     <td>
                                         <div class="score score--vertical">
                                             <div class="score__team score__team--vertical">
-                                            <a href="" target="_blank"><span>Real Valladolid</span></a>
-                                                <img alt="" src="https://ssl.gstatic.com/onebox/media/sports/logos/HlIrXZRP96tv0H1uiiN0Jg_48x48.png">
+                                            <a href="" target="_blank"><span>{{match.club1}}</span></a>
+                                                <img alt="" src="{{match.club1.image.url}}">
                                             </div>
                                             <p class="score__result score__result--vertical">
-                                                <span class="score__goals">3 : 2</span>
+                                                <span class="score__goals">{{match.club1_skor}} : {{match.club2_skor}}</span>
                                             </p>
                                             <div class="score__team score__team--vertical">
-                                                <img alt="" src="https://ssl.gstatic.com/onebox/media/sports/logos/HlIrXZRP96tv0H1uiiN0Jg_48x48.png">
-                                                <a href="" target="_blank"><span>Real Valladolid</span></a>
+                                                <img alt="" src="{{match.club2.image.url}}">
+                                                <a href="" target="_blank"><span>{{match.club2}}</span></a>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <span>Beşiktaş Tüpraş Stadyum</span>
+                                        <span>{{match.stadium}}</span>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="tab-pane fade " id="pills-kadro" role="tabpanel" aria-labelledby="pills-kadro-tab">
