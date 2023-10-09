@@ -40,11 +40,15 @@ def club_details(request, club_slug):
     players = Player.objects.filter(club=clubs)
     matches = Matches.objects.filter(Q(club1=clubs) | Q(club2=clubs))
     standings = Standings.objects.filter(club=clubs)
+    ok = Transfers.objects.filter(ok=clubs)
+    tok = Transfers.objects.filter(tok=clubs)
     return render(request, 'pages/club_details.html', {
         'clubs': clubs,
         'players': players,
         'matches': matches,
         'standings': standings,
+        'ok': ok,
+        'tok': tok,
     })
 
 

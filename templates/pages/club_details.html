@@ -251,20 +251,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            {% for transfer in transfer.tok.all%}
                                 <tr>
                                     <td>
                                         <img src="../assets/img/indir.png" width="20px" alt="">
-                                        <span>Gökhan İnler</span>
+                                        <span>{{transfer.name}}</span>
                                     </td>
                                     <td>
-                                        ORT
+                                        {{transfer.player.pozition}}
                                     </td>
                                     <td>
-                                        39
+                                        {{tansfer.player.age}}
                                     </td>
                                     <td>
                                         <img src="../assets/img/indir.png" width="20px" alt="">
-                                        <span>Adana Demirspor</span>
+                                        <span>{{transfer.ok}}</span>
                                     </td>
                                     <td>
                                         14/09/2023
@@ -273,6 +274,7 @@
                                         Serbest Transfer
                                     </td>
                                 </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
