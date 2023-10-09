@@ -69,7 +69,7 @@
                                         </td>
                                         <td>
                                             <img src="{{ standing.club.image.url}}" width='20px' alt="cen">
-                                            <span>{{ standing.club.name }}</span>
+                                            <a href="{% url 'club_details' club_slug=standing.club.slug %}"><span>{{ standing.club.name }}</span></a>
                                         </td>
                                         <td>
                                             {{standing.om}}
@@ -100,17 +100,17 @@
                         <div class="card__body matches__data">
                             <div class="card-main-macthes">
                             </div>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        {% for fikstur  in match_leagues%}
+                            {% for fikstur  in match_leagues%}
+                                <table>
+                                    <tbody>
+                                        <tr>
                                             <td>
                                                 <span class="matches__time matches__time--live">{{fikstur.time}}</span>
                                             </td>
                                             <td>
                                                 <div class="score score--vertical">
                                                     <div class="score__team score__team--vertical">
-                                                    <a href="" target="_blank"><span>{{fikstur.club1}}</span></a>
+                                                    <a href="{% url 'club_details' club_slug=fikstur.club1.slug %}" target="_blank"><span>{{fikstur.club1}}</span></a>
                                                         <img alt="" src="{{fikstur.club1.image.url}}">
                                                     </div>
                                                     <p class="score__result score__result--vertical">
@@ -118,7 +118,7 @@
                                                     </p>
                                                     <div class="score__team score__team--vertical">
                                                         <img alt="" src="{{ fikstur.club2.image.url }}">
-                                                        <a href="" target="_blank"><span>{{fikstur.club2}}</span></a>
+                                                        <a href="{% url 'club_details' club_slug=fikstur.club2.slug %}" target="_blank"><span>{{fikstur.club2}}</span></a>
                                                     </div>
                                                 </div>
 
@@ -126,10 +126,10 @@
                                             <td>
                                                 <span>{{fikstur.stadium}}</span>
                                             </td>
-                                        {% endfor %}
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">

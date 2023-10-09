@@ -120,15 +120,15 @@
                                     <td>
                                         <div class="score score--vertical">
                                             <div class="score__team score__team--vertical">
-                                            <a href="" target="_blank"><span>{{match.club1}}</span></a>
+                                            <a href="{% url 'club_details' club_slug=match.club1.slug %}" target="_blank"><span>{{match.club1}}</span></a>
                                                 <img alt="" src="{{match.club1.image.url}}">
                                             </div>
                                             <p class="score__result score__result--vertical">
-                                                <span class="score__goals">{{match.club1_skor}} : {{match.club2_skor}}</span>
+                                                <a href="{% url 'match_details' match_slug=match.slug %}"><span class="score__goals">{{match.club1_skor}} : {{match.club2_skor}}</span></a>
                                             </p>
                                             <div class="score__team score__team--vertical">
                                                 <img alt="" src="{{match.club2.image.url}}">
-                                                <a href="" target="_blank"><span>{{match.club2}}</span></a>
+                                                <a href="{% url 'club_details' club_slug=match.club2.slug %}" target="_blank"><span>{{match.club2}}</span></a>
                                             </div>
                                         </div>
                                     </td>

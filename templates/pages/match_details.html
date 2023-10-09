@@ -8,7 +8,7 @@
                     <div class="team-left">
                         <div class="team-main">
                             <img src="{{matches.club1.image.url }}" width="50px" alt="">
-                            <span>{{matches.club1}}</span>
+                            <a href="{% url 'club_details' club_slug=matches.club1.slug %}"><span>{{matches.club1}}</span></a>
                         </div>
                     </div>
                     <div class="team-score">
@@ -23,7 +23,7 @@
                     </div>
                     <div class="team-right">
                         <div class="team-main">
-                            <span>{{matches.club2}}</span>
+                            <a href="{% url 'club_details' club_slug=matches.club2.slug %}"><span>{{matches.club2}}</span></a>
                             <img src="{{matches.club2.image.url }}" width="50px" alt="">
                         </div>
                     </div>
