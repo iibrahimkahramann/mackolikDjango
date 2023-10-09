@@ -39,10 +39,12 @@ def club_details(request, club_slug):
     clubs = get_object_or_404(Club, slug=club_slug)
     players = Player.objects.filter(club=clubs)
     matches = Matches.objects.filter(Q(club1=clubs) | Q(club2=clubs))
+    standings = Standings.objects.filter(club=clubs)
     return render(request, 'pages/club_details.html', {
         'clubs': clubs,
         'players': players,
         'matches': matches,
+        'standings': standings,
     })
 
 

@@ -72,33 +72,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td>
-                                        <img src="../assets/img/indir.png" width='20px' alt="">
-                                        <span>Fenerbahçe</span>
-                                    </td>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td>
-                                        2:2
-                                    </td>
-                                    <td>
-                                        2
-                                    </td>
-                                </tr>
+                            {% for standing in standings %}
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <img src="{{ standing.club.image.url}}" width='20px' alt="cen">
+                                            <span>{{ standing.club.name }}</span>
+                                        </td>
+                                        <td>
+                                            {{standing.om}}
+                                        </td>
+                                        <td>
+                                            {{standing.win}}
+                                        </td>
+                                        <td>
+                                            {{standing.draw}}
+                                        </td>
+                                        <td>
+                                            {{standing.lost}}
+                                        </td>
+                                        <td>
+                                            {{standing.goal}}
+                                        </td>
+                                        <td>
+                                            {{standing.puan}}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
