@@ -86,6 +86,10 @@ def transfers(request, club_slug):
         'tok': tok
     })
 
-
+def player_details(request, player_slug):
+    player = get_object_or_404(Player, slug=player_slug)
+    return render(request, 'pages/player_details.html', {
+        'player': player,
+    })
 
 

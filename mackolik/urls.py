@@ -9,7 +9,8 @@ urlpatterns = [
     path('club/<slug:club_slug>/staff/', views.staff, name='staff'),
     path('club/<slug:club_slug>/transfer/', views.transfers, name='transfers'),
     path('news/', views.news, name='news'),
-    path('news-detail/<slug:news_slug>/', views.news_detail, name='news_detail')
+    path('news-detail/<slug:news_slug>/', views.news_detail, name='news_detail'),
+    path('player/<slug:player_slug>/', views.player_details, name='player_details')
 ]
 
 

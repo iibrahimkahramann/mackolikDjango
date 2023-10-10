@@ -1656,3 +1656,35 @@ body {
 #pills-transfer .matches-fikstur td:nth-last-child(1), #pills-transfer .matches-fikstur th:nth-last-child(1) {
   width: 150px !important;
 }
+.matches #player-main td, .matches #player-main th {
+    width: 10%;
+}
+.matches .player-main {
+  margin-bottom: 50px;
+}
+.matches #player-main td:last-child, .matches #player-main th:last-child {
+  padding-right: 0rem;
+}
+#player-main span {
+  margin-left: 20px;
+}
+
+.matches .hakem-table td:first-child, .matches .hakem-table th:first-child {
+  text-align: center;
+}
+.matches .hakem-detail td, .matches .hakem-detail th {
+  width: 10%;
+}
+.matches .hakem-detail td:first-child, .matches .hakem-detail th:first-child {
+  text-align: center;
+}
+.hakem-detail {
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+}
+.hakem-detail thead {
+  background-color: rgba(139, 147, 154, 0.05);
+}
+.hakem-detail td:last-child, .hakem-detail th:last-child {
+  padding-right: 7rem;
+}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+
+<main class="lig-section">
+    <section class="hero-lig">
+        <img src="{{player.image.url}}" alt="Player photo">
+        <div class="lig-main">
+            <h1>{{player.name}}</h1>
+        </div>
+    </section>
+</main>
+<section class="matches">
+    <div class="card">
+        <div id="player-main" class="card__body matches__data">
+            <div class="card-main-macthes">
+                <img src="{{player.club.image.url}}" width="40px" alt="">
+                <span><strong>{{player.club.name}}</strong></span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            No
+                        </th>
+                        <th>
+                            Ülke
+                        </th>
+                        <th>
+                            Yaş
+                        </th>
+                        <th>
+                            Boy
+                        </th>
+                        <th>
+                            Ayak
+                        </th>
+                        <th>
+                            Poz.
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            {{player.numbers}}
+                        </td>
+                        <td>
+                            <img src="{{player.nationality.image.url}}" width="20px" alt="">
+                            <span>{{player.nationality}}</span>
+                        </td>
+                        <td>
+                            {{player.age}}
+                        </td>
+                        <td>
+                            {{player.size}}
+                        </td>
+                        <td>
+                            {{player.foot}}
+                        </td>
+                        <td>
+                            {{player.pozition}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+
+{%endblock%}

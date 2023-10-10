@@ -41,7 +41,7 @@
                     <div class="team-left">
                         {% for player in matches.club1_team_goals.all %}
                             <div class="goals-detail">
-                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                                <a href="{% url 'player_details' player_slug=player.slug %}"><span>{{player.name}} </span></a>
                                 <span><strong>15'</strong></span>
                             </div>
                         {% endfor %}
@@ -49,7 +49,7 @@
                     <div class="team-right">
                         {% for player in matches.club2_team_goals.all %}
                             <div class="goals-detail">
-                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                                <a href="{% url 'player_details' player_slug=player.slug %}"><span>{{player.name}} </span></a>
                                 <span><strong>15'</strong></span>
                             </div>
                         {% endfor%}
@@ -63,7 +63,7 @@
                 </div>
                     <h2 class="hero__title">Maçın Adamı !
                     </h2>
-                    <span class="hero__title">{{player.name}}</span>
+            <a href="{% url 'player_details' player_slug=player.slug %}"><span class="hero__title">{{player.name}}</span></a>
             {% endfor %}
         </section>
         <section class="line-up">
@@ -78,7 +78,7 @@
                         {% for player in matches.club1_team_line_up.all %}
                             <div class="goals-detail">
                                 <span><strong>{{player.pozition}} </strong></span>
-                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                                <a href="{% url 'player_details' player_slug=player.slug %}"><span>{{player.name}} </span></a>
                             </div>
                         {% endfor %}
                     </div>
@@ -86,7 +86,7 @@
                         {% for player in matches.club2_team_line_up.all %}
                             <div class="goals-detail">
                                 <span><strong>{{player.pozition}} </strong></span>
-                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                                <a href="{% url 'player_details' player_slug=player.slug %}"><span>{{player.name}} </span></a>
                             </div>
                         {% endfor %}
                     </div>
@@ -103,7 +103,7 @@
                         {% for player in matches.club1_team_reserves.all %}
                             <div class="goals-detail">
                                 <span><strong>{{player.pozition}} </strong></span>
-                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                                <a href="{% url 'player_details' player_slug=player.slug %}"><span>{{player.name}} </span></a>
                             </div>
                         {% endfor %}
                     </div>
@@ -111,7 +111,7 @@
                         {% for player in matches.club1_team_reserves.all %}
                             <div class="goals-detail">
                                 <span><strong>{{player.pozition}} </strong></span>
-                                <a href="player-detail.html"><span>{{player.name}} </span></a>
+                                <a href="{% url 'player_details' player_slug=player.slug %}"><span>{{player.name}} </span></a>
                             </div>
                         {% endfor %}
                     </div>

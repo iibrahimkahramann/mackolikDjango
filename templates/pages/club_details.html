@@ -179,7 +179,7 @@
                                         {{player.numbers}}
                                     </td>
                                     <td>
-                                        <a href="player-detail.html"><span>{{player.name}}</span></a>
+                                        <a href="{% url 'player_details' player_slug=player.slug %}"><span>{{player.name}}</span></a>
                                     </td>
                                     <td>
                                         {{player.nationality.name}}
