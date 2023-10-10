@@ -11,7 +11,7 @@
     </section>
 </main>
 <section class="matches">
-    <div class="card">
+    <div class="card player-main">
         <div id="player-main" class="card__body matches__data">
             <div class="card-main-macthes">
                 <img src="{{player.club.image.url}}" width="40px" alt="">
@@ -66,6 +66,34 @@
             </table>
 
         </div>
+    </div>
+    <div class=" hakem-detail">
+        {% for club in clubs%}
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Kulüp
+                    </th>
+                    <th>
+                        Süre
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="{{club.image.url}}" width="20px">
+                        <span>{{club.name}}</span>
+                    </td>
+                    <td>
+                        {{ club.clubsplayed_set.get(player=player).entry_date }} - {{ club.clubsplayed_set.get(player=player).release_date }}
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+        {% endfor %}
     </div>
 </section>
 

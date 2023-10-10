@@ -44,3 +44,5 @@ class TransferAdmin(admin.ModelAdmin):
 admin.site.register(Transfers,TransferAdmin)
 admin.site.register(Nationality)
 admin.site.register(Standings)
+
+

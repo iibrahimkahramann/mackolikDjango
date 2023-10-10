@@ -662,7 +662,7 @@ body {
   text-align: center;
   font-weight: 500;
 }
-.matches table:hover {
+.matches__data *-.matches table:hover {
     background-color: #e6e6e6;
 }
 .matches .card-main-macthes {
@@ -670,7 +670,7 @@ body {
     padding: 10px;
     color: #767373;
 }
-.matches table:hover .score--vertical span {
+ .matches table:hover .score--vertical span {
     text-decoration: underline;
 }
 .matches tbody tr:last-child {
@@ -1681,6 +1681,7 @@ body {
 .hakem-detail {
   border: 1px solid rgba(0,0,0,.125);
   border-radius: 0.25rem;
+  margin-top:20px;
 }
 .hakem-detail thead {
   background-color: rgba(139, 147, 154, 0.05);

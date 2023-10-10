@@ -237,3 +237,6 @@ class Standings(models.Model):
     def __str__(self):
         return self.club.name
 
+
+
+
