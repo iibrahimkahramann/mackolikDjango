@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+
+<main class="lig-section">
+    <section class="hero-lig">
+        <img src="../assets/img/erdem.png" alt="Premier Lig">
+        <div class="lig-main">
+            <h1>Erdem Canpolat</h1>
+        </div>
+    </section>
+</main>
+<section class="matches">
+    <div class="card player-main">
+        <div id="player-main" class="card__body matches__data">
+            <div class="card-main-macthes">
+                <img src="../assets/img/pendikspor-istanbul-logo-E093467F8D-seeklogo.com.png" width="40px" alt="">
+                <span><strong>Pendikspor</strong></span>
+            </div>
+            <table class="hakem-table">
+                <thead>
+                    <tr>
+                        <th>
+                            Yaş
+                        </th>
+                        <th>
+                            Doğum Yeri
+                        </th>
+                        <th>
+                            Uyruk
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            <img src="../assets/img/almanya.png" width="20px" alt="">
+                            <span>Germany</span>
+                        </td>
+                        <td>
+                            22
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="hakem-detail">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Kulüp
+                    </th>
+                    <th>
+                        Süre
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="../assets/img/indir.png" width="20px">
+                        <span>Beşiktaş</span>
+                    </td>
+                    <td>
+                        2021-2023
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+
+{%endblock%}

@@ -72,6 +72,7 @@ class Coach(models.Model):
     nationality = models.ManyToManyField(Nationality, related_name='coach_nationality', blank=True)
     image = models.ImageField(upload_to='news_coach_images/', default='coach_image.jpg')
 
+
     class Meta:
         db_table = 'Coach'
         verbose_name = 'Teknik Direktör'
