@@ -19,7 +19,7 @@ class Nationality(models.Model):
 
 class Leagues(models.Model):
     name = models.CharField(max_length=120)
-    nationality = models.ManyToManyField(Nationality, related_name='league_nationality', blank=True)
+    nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE, related_name='league_nationality', null=True)
     image = models.ImageField(upload_to='news_league_images/', default='league_image.jpg')
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
     history = models.TextField(null=True)
@@ -28,6 +28,8 @@ class Leagues(models.Model):
         db_table = 'Leagues'
         verbose_name = 'Ligler'
         verbose_name_plural = 'Ligler'
+
+
 
     def __str__(self):
         return self.name
@@ -49,7 +51,7 @@ class Cup(models.Model):
 
 class Club(models.Model):
     name = models.CharField(max_length=120, unique=True)
-    nationality = models.ManyToManyField(Nationality, related_name='club_nationality', blank=True)
+    nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE, related_name='club_nationality', null=True)
     stadium = models.CharField(max_length=120, unique=True)
     coach = models.ForeignKey('Coach', on_delete=models.CASCADE, related_name='kulüp')   #coach modelini referans veriyor önde tanımlanmadıgı için
     league = models.ForeignKey(Leagues, on_delete=models.CASCADE, related_name='Ligler')
@@ -69,7 +71,7 @@ class Coach(models.Model):
     name = models.CharField(max_length=120)
     age = models.PositiveIntegerField()
     date_of_birth = models.DateField()
-    nationality = models.ManyToManyField(Nationality, related_name='coach_nationality', blank=True)
+    nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE, related_name='Coach_nationality', null=True)
     image = models.ImageField(upload_to='news_coach_images/', default='coach_image.jpg')
 
 
@@ -88,7 +90,7 @@ class Player(models.Model):
     name = models.CharField(max_length=120)
     age = models.PositiveIntegerField()
     date_of_birth = models.DateField()
-    nationality = models.ManyToManyField(Nationality, related_name='player_nationality', blank=True)
+    nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE, related_name='player_nationality', null=True)
     foot = models.CharField(max_length=120)
     size = models.FloatField()
     weight = models.PositiveIntegerField()
@@ -112,7 +114,7 @@ class Player(models.Model):
 class Referee(models.Model):
     name = models.CharField(max_length=120)
     age = models.PositiveIntegerField()
-    nationality = models.ManyToManyField(Nationality, related_name='referee_nationality', blank=True)
+    nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE, related_name='referee_nationality', null=True)
     image = models.ImageField(upload_to='news_referee_images/', default='referee_image.jpg')
 
 
@@ -206,9 +208,9 @@ class News(models.Model):
 
 
 class Transfers(models.Model):
-    player = models.ManyToManyField(Player, related_name='oyuncu')
-    tok = models.ManyToManyField(Club,  related_name='transfer_oldugu_kulup')
-    ok = models.ManyToManyField(Club, related_name='oynadıgı_kulup',)
+    player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='player_transfer', null=True)
+    tok = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='transfer_o_club', null=True)
+    ok = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='play_club', null=True)
     time = models.DateField()
 
     class Meta:

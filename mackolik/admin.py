@@ -2,26 +2,27 @@ from django.contrib import admin
 from .models import Leagues, Club, Coach, Player, Matches, Referee, Author, News, Cup, Transfers, Nationality, Standings
 
 class LeaguesAdmin(admin.ModelAdmin):
-    filter_horizontal = ('nationality',)
+    search_fields = ['league_nationality']
+
 
 admin.site.register(Leagues,LeaguesAdmin)
 
 
 
 class ClubAdmin(admin.ModelAdmin):
-    filter_horizontal = ('nationality',)
+    pass
 
 
 admin.site.register(Club,ClubAdmin)
 
 class CoachAdmin(admin.ModelAdmin):
-    filter_horizontal = ('nationality',)
+    pass
 
 admin.site.register(Coach,CoachAdmin)
 
 
 class PlayerAdmin(admin.ModelAdmin):
-    filter_horizontal = ('nationality',)
+    pass
 
 admin.site.register(Player, PlayerAdmin)
 
@@ -32,7 +33,7 @@ class MatchAdmin(admin.ModelAdmin):
 admin.site.register(Matches,MatchAdmin)
 
 class RefereeAdmin(admin.ModelAdmin):
-    filter_horizontal = ('nationality',)
+    pass
 
 
 admin.site.register(Referee, RefereeAdmin)
@@ -40,7 +41,7 @@ admin.site.register(Author)
 admin.site.register(News)
 admin.site.register(Cup)
 class TransferAdmin(admin.ModelAdmin):
-    filter_horizontal = ('player','tok', 'ok')
+    pass
 admin.site.register(Transfers,TransferAdmin)
 admin.site.register(Nationality)
 admin.site.register(Standings)
