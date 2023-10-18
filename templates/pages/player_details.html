@@ -68,7 +68,7 @@
         </div>
     </div>
     <div class=" hakem-detail">
-        {% for club in clubs%}
+        {% for history in player.playerclubhistory_set.all %}
         <table>
             <thead>
                 <tr>
@@ -83,11 +83,11 @@
             <tbody>
                 <tr>
                     <td>
-                        <img src="{{club.image.url}}" width="20px">
-                        <span>{{club.name}}</span>
+                        <img src="{{history.club.image.url}}" width="20px">
+                        <span>{{ history.club.name }}</span>
                     </td>
                     <td>
-                        {{ club.clubsplayed_set.get(player=player).entry_date }} - {{ club.clubsplayed_set.get(player=player).release_date }}
+                        {{ history.start_date }} - {{ history.end_date }}
                     </td>
 
                 </tr>
@@ -98,3 +98,21 @@
 </section>
 
 {%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

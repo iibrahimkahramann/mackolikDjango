@@ -99,6 +99,7 @@ class Player(models.Model):
     image = models.ImageField(upload_to='news_player_images/', default='player_image.jpg')
     pozition = models.CharField(max_length=20, null=True)
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
+    history_clubs = models.ManyToManyField(Club, through='PlayerClubHistory')
 
     class Meta:
         db_table = 'Player'
@@ -241,4 +242,17 @@ class Standings(models.Model):
 
 
 
+class PlayerClubHistory(models.Model):
+    player = models.ForeignKey(Player, on_delete=models.CASCADE)
+    club = models.ForeignKey(Club, on_delete=models.CASCADE)
+    start_date = models.DateField()
+    end_date = models.DateField()
 
+
+    class Meta:
+        db_table = 'PlayerClubHistory'
+        verbose_name = 'Oyuncu Geçmiş Kulüpleri'
+        verbose_name_plural = 'Oyuncu Geçmiş Kulüpleri'
+
+    def __str__(self):
+        return self.club.name

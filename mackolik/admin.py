@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Leagues, Club, Coach, Player, Matches, Referee, Author, News, Cup, Transfers, Nationality, Standings
+from .models import Leagues, Club, Coach, Player, Matches, Referee, Author, News, Cup, Transfers, Nationality, Standings,PlayerClubHistory
 
 class LeaguesAdmin(admin.ModelAdmin):
     search_fields = ['league_nationality']
@@ -45,5 +45,6 @@ class TransferAdmin(admin.ModelAdmin):
 admin.site.register(Transfers,TransferAdmin)
 admin.site.register(Nationality)
 admin.site.register(Standings)
+admin.site.register(PlayerClubHistory)
 
 
