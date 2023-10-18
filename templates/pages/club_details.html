@@ -173,8 +173,8 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            {% for player in players%}
                                 <tr>
-                                    {% for player in players%}
                                     <td>
                                         {{player.numbers}}
                                     </td>
@@ -193,8 +193,8 @@
                                     <td>
                                         2
                                     </td>
-                                    {% endfor %}
                                 </tr>
+                             {% endfor %}
                             </tbody>
                         </table>
                     </div>
