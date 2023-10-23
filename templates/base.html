@@ -23,7 +23,9 @@
                     <li class="nav-item"><a href="" class="nav-link">Analitics</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Forecasts</a></li>
                 </ul>
-                {% block nav_right %}{% endblock %}
+                {% block nav_right %}
+                    {% include 'pages/search.html' %}
+                {% endblock %}
 
             </nav>
         </header>

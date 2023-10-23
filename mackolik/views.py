@@ -99,4 +99,8 @@ def coach_details(request,):
 
 
 def search(request,):
-    return render(request, 'pages/search.html',)
+    query = request.GET.get('q')  # Kullanıcının arama sorgusunu alın
+    matches = Matches.objects.filter(club1__name__icontains=query)
+    return render(request, 'pages/search_table.html',{
+        'matches': matches,
+    })

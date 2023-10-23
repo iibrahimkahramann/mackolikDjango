@@ -1,10 +1,10 @@
-{% extends 'base.html' %}
+
 {% load static %}
 
 {% block nav_right %}
     <div class="nav-right">
         <div class="search">
-            <form method="GET" action="{% url 'search_matches' %}">
+            <form method="GET" action="{% url 'search' %}">
                 <input type="text" name="q" placeholder="Ara">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>

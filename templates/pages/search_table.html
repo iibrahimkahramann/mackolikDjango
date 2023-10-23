@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block content%}
+
+{% for match in matches %}
+            <li>{{ match.club1 }} vs {{ match.club2 }} - {{ match.date }}</li>
+{% endfor %}
+
+{% endblock %}
