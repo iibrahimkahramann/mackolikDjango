@@ -95,3 +95,8 @@ def player_details(request, player_slug):
 
 def coach_details(request,):
     return render(request, 'pages/coach_details.html',)
+
+
+
+def search(request,):
+    return render(request, 'pages/search.html',)

@@ -11,7 +11,8 @@ urlpatterns = [
     path('news/', views.news, name='news'),
     path('news-detail/<slug:news_slug>/', views.news_detail, name='news_detail'),
     path('player/<slug:player_slug>/', views.player_details, name='player_details'),
-    path('coach/', views.coach_details, name='coach_details')
+    path('coach/', views.coach_details, name='coach_details'),
+    path('search/', views.search, name='search')
 
 ]
 

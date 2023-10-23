@@ -99,7 +99,7 @@ class Player(models.Model):
     image = models.ImageField(upload_to='news_player_images/', default='player_image.jpg')
     pozition = models.CharField(max_length=20, null=True)
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
-    history_clubs = models.ManyToManyField(Club, through='PlayerClubHistory')
+    history_clubs = models.ManyToManyField(Club, through='PlayerClubHistory')   #through ilişkisel modellerde ara modeli kullanmak için kullanılır
 
     class Meta:
         db_table = 'Player'

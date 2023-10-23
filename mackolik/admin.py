@@ -30,6 +30,7 @@ class MatchAdmin(admin.ModelAdmin):
     filter_horizontal = ('club1_team_line_up', 'club2_team_line_up', 'club1_team_reserves', 'club2_team_reserves', 'club1_team_goals', 'club2_team_goals', 'man_of_the_match')
 
 
+
 admin.site.register(Matches,MatchAdmin)
 
 class RefereeAdmin(admin.ModelAdmin):

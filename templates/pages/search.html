@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block nav_right %}
+    <div class="nav-right">
+        <div class="search">
+            <form method="GET" action="{% url 'search_matches' %}">
+                <input type="text" name="q" placeholder="Ara">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <i class="fa-regular fa-user" style="color: #445574;"></i>
+    </div>
+{% endblock %}
