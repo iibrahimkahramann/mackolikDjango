@@ -2,8 +2,54 @@
 {% load static %}
 {%block content%}
 
-{% for match in matches %}
-            <li>{{ match.club1 }} vs {{ match.club2 }} - {{ match.date }}</li>
-{% endfor %}
+<h1>Arama Sonuçları</h1>
+
+
+
+<h2>Ülkeler</h2>
+<ul>
+    {% for nationality in nationalitys %}
+        <a href="#">{{ nationality.name }}</a>
+        <img width="150px"  height="100px" src="{{nationality.image.url}}" alt="">
+    {% empty %}
+            <h4>Sonuç bulunamadı</h4>
+    {% endfor %}
+</ul>
+
+<h2>Takımlar</h2>
+<ul>
+    {% for club in clubs %}
+        <h3><a href="{% url 'club_details' club_slug=club.slug %}">{{ club.name }}</a></h3>
+        <img width="150px"  height="100px" src="{{club.image.url}}" alt="">
+    {% empty %}
+            <h5>Sonuç bulunamadı</h5>
+    {% endfor %}
+</ul>
+
+
+
+<h2>Ligler</h2>
+<ul>
+    {% for league in leagues %}
+        <a href="{% url 'league_details' league_slug=league.slug %}">{{ league.name }}</a>
+        <img width="150px"  height="100px" src="{{league.image.url}}" alt="">
+    {% empty %}
+            <h4>Sonuç bulunamadı</h4>
+    {% endfor %}
+</ul>
+
+
+
+
+
+<h2>Futbolcular</h2>
+<ul>
+    {% for player in players %}
+    <a href="{% url 'player_details' player_slug=player.slug %}">{{ player.name }}</a>
+    <img width="150px"  height="100px" src="{{player.image.url}}" alt="">
+    {% empty %}
+            <h4>Sonuç bulunamadı</h4>
+    {% endfor %}
+</ul>
 
 {% endblock %}

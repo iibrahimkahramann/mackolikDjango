@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Leagues, Coach, Club, Matches, Player,News,Author, Transfers, Standings
+from .models import Leagues, Coach, Club, Matches, Player,News,Author, Transfers, Standings, Nationality
 from django.db.models import Q
 
 def homepage(request):
@@ -100,7 +100,14 @@ def coach_details(request,):
 
 def search(request,):
     query = request.GET.get('q')  # Kullanıcının arama sorgusunu alın
-    matches = Matches.objects.filter(club1__name__icontains=query)
+    clubs = Club.objects.filter(name__icontains=query)
+    players = Player.objects.filter(name__icontains=query)
+    leagues = Leagues.objects.filter(name__icontains=query)
+    nationalitys = Nationality.objects.filter(name__icontains=query)
     return render(request, 'pages/search_table.html',{
-        'matches': matches,
+        'clubs': clubs,
+        'players': players,
+        'leagues': leagues,
+        'nationalitys': nationalitys
+
     })
