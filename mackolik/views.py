@@ -104,6 +104,8 @@ def search(request,):
     players = Player.objects.filter(name__icontains=query)
     leagues = Leagues.objects.filter(name__icontains=query)
     nationalitys = Nationality.objects.filter(name__icontains=query)
+
+
     return render(request, 'pages/search_table.html',{
         'clubs': clubs,
         'players': players,
@@ -111,3 +113,8 @@ def search(request,):
         'nationalitys': nationalitys
 
     })
+
+
+
+def auth(request):
+    return render(request, 'user/login.html')
