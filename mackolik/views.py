@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Leagues, Coach, Club, Matches, Player,News,Author, Transfers, Standings, Nationality
 from django.db.models import Q

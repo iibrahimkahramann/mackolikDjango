@@ -2,27 +2,17 @@
 {% load static %}
 {%block content%}
 
-<div class="login-form">
-  <h2>Giriş Yap</h2>
+<form method="post">
 
-  <input type="text" name="username" placeholder="Kullanıcı adı">
-  <input type="password" name="password" placeholder="Şifre">
+      <h2>Giriş Yap</h2>
 
-  <input type="submit" value="Giriş Yap">
-</div>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Oturum Aç</button>
+
+</form>
 
 
-
-<div class="register-form">
-  <h2>Kayıt Ol</h2>
-
-  <input type="text" name="username" placeholder="Kullanıcı adı">
-  <input type="password" name="password1" placeholder="Şifre">
-  <input type="password" name="password2" placeholder="Şifre (tekrar)">
-  <input type="email" name="email" placeholder="E-posta adresi">
-
-  <input type="submit" value="Kayıt Ol">
-</div>
 
 
 

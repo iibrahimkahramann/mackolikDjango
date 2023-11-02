@@ -461,6 +461,10 @@ body {
 .score--vertical {
   justify-content: flex-start;
 }
+
+.score--vertical:hover a{
+    text-decoration: underline !important;
+}
 .score__team {
   text-align: center;
 }
@@ -669,9 +673,6 @@ body {
     background-color: rgba(139, 147, 154, 0.05);
     padding: 10px;
     color: #767373;
-}
- .matches table:hover .score--vertical span {
-    text-decoration: underline;
 }
 .matches tbody tr:last-child {
   border: 0;
