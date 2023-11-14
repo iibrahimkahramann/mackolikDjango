@@ -13,7 +13,9 @@ urlpatterns = [
     path('player/<slug:player_slug>/', views.player_details, name='player_details'),
     path('coach/', views.coach_details, name='coach_details'),
     path('search/', views.search, name='search'),
-    path('login/', views.user_login, name='user_login')
+    path('login/', views.user_login, name='user_login'),
+    path('register/', views.user_register, name='user_register'),
+    path('dashboard/', views.user_dashboard, name='user_dashboard')
 
 ]
 

@@ -1,6 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Leagues, Club, Matches, Player,News, Transfers, Standings, Nationality
 from django.db.models import Q
+from django.contrib.auth import login, authenticate
+from .forms import CustomUserCreationForm, CustomAuthenticationForm
+from django.contrib.auth.decorators import login_required
+
+
 
 
 def homepage(request):
@@ -118,4 +123,34 @@ def search(request,):
 
 
 def user_login(request):
-    return render(request, 'user/login.html',)
+    if request.method == 'POST':
+        form = CustomAuthenticationForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('homepage')
+    else:
+        form = CustomAuthenticationForm()
+    return render(request, 'user/login.html', {'form': form})
+
+
+def user_register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            login(request, user)
+            return redirect('homepage')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'user/register.html', {'form': form})
+
+
+
+@login_required
+def user_dashboard(request):
+    return render(request, 'user/dashboard.html')

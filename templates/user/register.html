@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block content%}
+
+<form method="post">
+
+      <h2>Kayıt ol</h2>
+
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit">Oturum Aç</button>
+
+</form>
+
+
+
+
+
+{% endblock %}
