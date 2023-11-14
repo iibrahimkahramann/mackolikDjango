@@ -141,7 +141,7 @@ class Matches(models.Model):
     club1_skor = models.CharField(max_length=120, verbose_name='Kulüp 1 Skor')
     club2_skor = models.CharField(max_length=120, null=True, verbose_name='Kulüp 2 Skor')
     slug = AutoSlugField(populate_from='league', unique=True, editable=True, blank=True)
-    league = models.ForeignKey(Leagues, on_delete=models.CASCADE, verbose_name='Lig')
+    league = models.ForeignKey(Leagues, on_delete=models.CASCADE, related_name='lig', verbose_name='Lig')
     referee = models.ForeignKey(Referee, on_delete=models.CASCADE, verbose_name='Hakem')
     club1_team_line_up = models.ManyToManyField(Player, related_name='club1_line_up', verbose_name='Kulüp 1 İlk 11', blank=True)
     club1_team_reserves = models.ManyToManyField(Player, verbose_name='Kulüp 1 Yedekler', blank=True)

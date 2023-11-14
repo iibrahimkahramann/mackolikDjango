@@ -1,7 +1,7 @@
-from django.contrib.auth import authenticate, login
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Leagues, Coach, Club, Matches, Player,News,Author, Transfers, Standings, Nationality
+from .models import Leagues, Club, Matches, Player,News, Transfers, Standings, Nationality
 from django.db.models import Q
+
 
 def homepage(request):
     league = Leagues.objects.all()
@@ -100,7 +100,7 @@ def coach_details(request,):
 
 
 def search(request,):
-    query = request.GET.get('q')  # Kullanıcının arama sorgusunu alın
+    query = request.GET.get('q')
     clubs = Club.objects.filter(name__icontains=query)
     players = Player.objects.filter(name__icontains=query)
     leagues = Leagues.objects.filter(name__icontains=query)
@@ -117,5 +117,5 @@ def search(request,):
 
 
 
-def auth(request):
-    return render(request, 'user/login.html')
+def user_login(request):
+    return render(request, 'user/login.html',)
