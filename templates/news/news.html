@@ -2,24 +2,21 @@
 {% load static%}
 {% block content %}
 
+  <section class="hero-lig">
+        <h1>Haberler</h1>
+  </section>
 
-<div class="content-wrapper">
-  {% for haber in haberler %}
-    <div class="news-card">
-      <a href="{% url 'news_detail' news_slug=haber.slug %}" class="news-card__card-link"></a>
-      <img src="{{haber.image.url}}" alt="" class="news-card__image">
-      <div class="news-card__text-wrapper">
-        <h2 class="news-card__title">{{haber.title}}</h2>
-        <div class="news-card__post-name">{{ haber.summary }}</div>
-        <div class="news-card__details-wrapper">
-          <p class="news-card__excerpt">{{haber.author}}&hellip;</p>
-        </div>
-      </div>
+  <div class="band">
+    {% for haber in news %}
+     <div>
+        <a href="{% url 'news_detail' news_slug=haber.slug %}" class="cardcik">
+          <div class="thumb" style="background-image: url('{{ haber.image.url }}');"></div>
+          <article>
+            <h1>{{haber.title}}</h1>
+            <span>{{haber.author}}&hellip;</span>
+          </article>
+        </a>
     </div>
-  {% endfor %}
-</div>
-
-
-
-
+    {% endfor %}
+  </div>
 {% endblock %}

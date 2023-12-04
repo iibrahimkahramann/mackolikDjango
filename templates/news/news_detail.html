@@ -9,15 +9,17 @@
       <div class="col-12">
 
         <div class="news-block">
+          <h1 style="margin-block: 0.5em;">
+            {{news.title}}
+          </h1>
 
-          <img src="{{ haber.image.url }}">
+          <div class="img-block">
+              <span class="post-created">{{news.created_on}} </span>
+              <img style="width: 100%; border-radius: 10px; object-fit: contain;" src="{{ news.image.url }}">
+              <h6 class="post-created">{{news.author}}</h6>
+          </div>
 
-          <h3>
-            {{haber.title}}
-          </h3>
-          <p>{{haber.created_on}} </p>
-          <p class="title-news">{{haber.contents}}</p>
-          <h6>{{haber.author}}</h6>
+          <p class="title-news">{{news.contents}} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium nisi vitae veritatis in aspernatur rem enim? Blanditiis optio quo non magnam, consectetur distinctio fugit at placeat sunt quae. Qui, voluptates.</p>
 
         </div>
         <div class="clear">
