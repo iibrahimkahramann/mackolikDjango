@@ -2,18 +2,14 @@
 {% load static %}
 {%block content%}
 
-<form method="post">
+<form method="post" class="login-form">
 
       <h2>Kayıt ol</h2>
 
       {% csrf_token %}
       {{ form }}
-      <button type="submit">Oturum Aç</button>
+      <button type="submit">Kayıt Ol</button>
+      <p class="form-msg">Hesabın var mı hemen giriş yap amınakoyayım <a href="/login">Giriş Yap</a> </p>
 
 </form>
-
-
-
-
-
 {% endblock %}
