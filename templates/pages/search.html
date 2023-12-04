@@ -5,8 +5,12 @@
     <div class="nav-right">
         <div class="search">
             <form method="GET" action="{% url 'search' %}">
-                <input type="text" name="q" placeholder="Ara">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <fieldset class="field-container">
+                <input type="text" name="q" placeholder="Ara" class="field">
+                  <div class="icons-container">
+                    <div class="icon-search"></div>
+                  </div>
+                </fieldset>
             </form>
         </div>
         <a href="{% url 'user_login'%}"><i class="fa-regular fa-user" style="color: #445574;"></i></a>

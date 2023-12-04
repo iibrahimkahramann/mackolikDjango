@@ -1,55 +1,98 @@
 {% extends 'base.html' %}
 {% load static %}
 {%block content%}
+    <section class="hero-lig">
+        <h1>Arama Sonuçları</h1>
+    </section>
 
-<h1>Arama Sonuçları</h1>
+    <section>
+        <div class="accordion-container">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    Takımlar <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        {% for club in clubs %}
+                            <li class="accordion-content-item">
+                                <h3><a href="{% url 'club_details' club_slug=club.slug %}">{{ club.name }}</a></h3>
+                                <img width="150px"  height="100px" src="{{club.image.url}}" alt="">
+                            </li>
+                        {% empty %}
+                                <h5>Sonuç bulunamadı</h5>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
+     <section>
+        <div class="accordion-container">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    Takımlar <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        {% for league in leagues %}
+                            <li class="accordion-content-item">
+                                <h3><a href="{% url 'league_details' league_slug=league.slug %}">{{ league.name }}</a></h3>
+                                <img width="150px"  height="100px" src="{{league.image.url}}" alt="{{ league.name }}">
+                            </li>
+                        {% empty %}
+                                <h5>Sonuç bulunamadı</h5>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
+     <section>
+        <div class="accordion-container">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    Futbolcular <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        {% for player in players %}
+                            <li class="accordion-content-item">
+                                <h3><a href="{% url 'player_details' player_slug=player.slug %}">{{ player.name }}</a></h3>
+                                <img width="150px"  height="100px" src="{{player.image.url}}" alt="{{ player.name }}">
+                            </li>
+                        {% empty %}
+                                <h5>Sonuç bulunamadı</h5>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h2>Ülkeler</h2>
-<ul>
-    {% for nationality in nationalitys %}
-        <a href="#">{{ nationality.name }}</a>
-        <img width="150px"  height="100px" src="{{nationality.image.url}}" alt="">
-    {% empty %}
-            <h4>Sonuç bulunamadı</h4>
-    {% endfor %}
-</ul>
+<script>
+    document.querySelectorAll('.accordion-header').forEach(button => {
+    button.addEventListener('click', () => {
+        const accordionContent = button.nextElementSibling;
 
-<h2>Takımlar</h2>
-<ul>
-    {% for club in clubs %}
-        <h3><a href="{% url 'club_details' club_slug=club.slug %}">{{ club.name }}</a></h3>
-        <img width="150px"  height="100px" src="{{club.image.url}}" alt="">
-    {% empty %}
-            <h5>Sonuç bulunamadı</h5>
-    {% endfor %}
-</ul>
+        button.classList.toggle('active');
 
+        if (button.classList.contains('active')) {
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+        } else {
+            accordionContent.style.maxHeight = 0;
+        }
 
-
-<h2>Ligler</h2>
-<ul>
-    {% for league in leagues %}
-        <a href="{% url 'league_details' league_slug=league.slug %}">{{ league.name }}</a>
-        <img width="150px"  height="100px" src="{{league.image.url}}" alt="">
-    {% empty %}
-            <h4>Sonuç bulunamadı</h4>
-    {% endfor %}
-</ul>
-
-
-
-
-
-<h2>Futbolcular</h2>
-<ul>
-    {% for player in players %}
-    <a href="{% url 'player_details' player_slug=player.slug %}">{{ player.name }}</a>
-    <img width="150px"  height="100px" src="{{player.image.url}}" alt="">
-    {% empty %}
-            <h4>Sonuç bulunamadı</h4>
-    {% endfor %}
-</ul>
+        // Close other open accordion items
+        document.querySelectorAll('.accordion-header').forEach(otherButton => {
+            if (otherButton !== button) {
+                otherButton.classList.remove('active');
+                otherButton.nextElementSibling.style.maxHeight = 0;
+            }
+        });
+    });
+});
+</script>
 
 {% endblock %}
