@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Leagues, Club, Matches, Player,News, Transfers, Standings, Nationality
 from django.db.models import Q
@@ -156,14 +156,18 @@ def user_register(request):
 @login_required
 def user_dashboard(request):
     if request.method == 'POST':
-        form = UserChangeForm(request.POST, instance=request.user)
-        if form.is_valid():
+        form = UserChangeForm(request.POST, instance=request.user) #instance useri alıp yeni veri oluşrumama olanak sağlıyor
+        password_form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid() and password_form.is_valid():
             form.save()
+            password_form.save()
             return redirect('dashboard')
     else:
         form = UserChangeForm(instance=request.user)
+        password_form = PasswordChangeForm(request.user)
     return render(request, 'user/dashboard.html', {
-        'form': form
+        'form': form ,
+        'password_form': password_form
     })
 
 

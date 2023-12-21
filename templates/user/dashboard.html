@@ -192,7 +192,15 @@ fieldset {
   <form action="" method="post">
       {% csrf_token %}
     <h3>Kullanıcı Bilgileri</h3>
-      {{ form.as_p }}
+    <fieldset>
+        {{form.username}}
+    </fieldset>
+    <fieldset>
+      {{form.email}}
+    </fieldset>
+    <fieldset>
+      {{ password_form }}
+    </fieldset>
     <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Güncelle</button>
     </fieldset>
