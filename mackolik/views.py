@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Leagues, Club, Matches, Player,News, Transfers, Standings, Nationality
 from django.db.models import Q
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 
@@ -154,3 +155,10 @@ def user_register(request):
 @login_required
 def user_dashboard(request):
     return render(request, 'user/dashboard.html')
+
+
+def user_logout(request):
+    logout(request)
+    redirect('homepage')
+
+
