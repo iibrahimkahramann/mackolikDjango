@@ -69,9 +69,6 @@
                         Kulüp
                     </th>
                     <th>
-                        Süre
-                    </th>
-                    <th>
                         Fav
                     </th>
                 </tr>
@@ -80,9 +77,6 @@
                 <tr>
                     <td>
                         sss
-                    </td>
-                    <td>
-                        ss
                     </td>
                     <td>
                        <label class="like">
@@ -195,19 +189,12 @@ fieldset {
     </style>
 
     <div class="container">
-  <form id="contact" action="" method="post">
+  <form action="" method="post">
+      {% csrf_token %}
     <h3>Kullanıcı Bilgileri</h3>
+      {{ form.as_p }}
     <fieldset>
-      <input value={{user.username}} type="text" tabindex="1" required autofocus>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your Email Address" type="email" tabindex="2" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
-    </fieldset>
-    <fieldset>
-      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Güncelle</button>
     </fieldset>
   </form>
 
