@@ -3,9 +3,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Leagues, Club, Matches, Player,News, Transfers, Standings, Nationality
 from django.db.models import Q
 from django.contrib.auth import login, authenticate, logout
-from .forms import CustomUserCreationForm, CustomAuthenticationForm
+from .forms import CustomUserCreationForm, CustomAuthenticationForm, UserProfileForm, CustomPasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from allauth.account.views import PasswordChangeView
+
 
 
 
@@ -152,25 +154,29 @@ def user_register(request):
     return render(request, 'user/register.html', {'form': form})
 
 
-
 @login_required
 def user_dashboard(request):
     if request.method == 'POST':
-        form = UserChangeForm(request.POST, instance=request.user) #instance useri alıp yeni veri oluşrumama olanak sağlıyor
+        user_form = UserProfileForm(request.POST, instance=request.user)
         password_form = PasswordChangeForm(request.user, request.POST)
-        if form.is_valid() and password_form.is_valid():
-            form.save()
-            password_form.save()
-            return redirect('dashboard')
+
+        if user_form.is_valid() and password_form.is_valid():
+            user_form.save()
+
+            if password_form.is_valid():
+                password_form.save()
+                messages.success(request, 'Değişiklikler Kaydedildi')
+                return redirect('homepage')
+            else:
+                messages.error(request, 'Şifre değiştirme işlemi başarısız oldu.')
     else:
-        form = UserChangeForm(instance=request.user)
+        user_form = UserProfileForm(instance=request.user)
         password_form = PasswordChangeForm(request.user)
+
     return render(request, 'user/dashboard.html', {
-        'form': form ,
+        'user_form': user_form,
         'password_form': password_form
     })
-
-
 def user_logout(request):
     logout(request)
     return redirect('homepage')

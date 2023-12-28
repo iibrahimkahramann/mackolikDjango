@@ -190,21 +190,51 @@ fieldset {
 
     <div class="container">
   <form action="" method="post">
-      {% csrf_token %}
+    {% csrf_token %}
+
     <h3>Kullanıcı Bilgileri</h3>
     <fieldset>
-        {{form.username}}
+        {{ user_form.username.label_tag }} {{ user_form.username }}
     </fieldset>
     <fieldset>
-      {{form.email}}
+        {{ user_form.email.label_tag }} {{ user_form.email }}
+    </fieldset>
+
+    <h3>Şifre Değiştirme</h3>
+    <fieldset>
+        {{ password_form.old_password.label_tag }} {{ password_form.old_password }}
+        {{ password_form.old_password.errors }}
     </fieldset>
     <fieldset>
-      {{ password_form }}
+        {{ password_form.new_password1.label_tag }} {{ password_form.new_password1 }}
+        {{ password_form.new_password1.errors }}
     </fieldset>
     <fieldset>
-      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Güncelle</button>
+        {{ password_form.new_password2.label_tag }} {{ password_form.new_password2 }}
+        {{ password_form.new_password2.errors }}
     </fieldset>
-  </form>
+
+    <fieldset>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Güncelle</button>
+    </fieldset>
+</form>
+
+        {% if messages %}
+          <div class="messages">
+            {% for message in messages %}
+              {% if message.tags == 'success' %}
+                <div class="alert alert-success" role="alert">
+                  {{ message }}
+                </div>
+              {% elif message.tags == 'error' %}
+                <div class="alert alert-danger" role="alert">
+                  {{ message }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
 
 
 </div>

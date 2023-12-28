@@ -1,5 +1,6 @@
 from django.db import models
 from autoslug import AutoSlugField
+from django.contrib.auth.models import AbstractUser
 
 
 class Nationality(models.Model):
@@ -255,3 +256,6 @@ class PlayerClubHistory(models.Model):
 
     def __str__(self):
         return self.club.name
+
+
+
