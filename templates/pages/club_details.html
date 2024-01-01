@@ -283,7 +283,7 @@
                     <div class="card__body matches-fikstur matches__data">
                         <table>
                             <thead>
-                            <h4>Gelen Oyuncular</h2>
+                            <h4>Transferler</h2>
                                 <tr>
                                     <th>
                                        Oyuncu
@@ -295,8 +295,12 @@
                                         Yaş
                                     </th>
                                     <th>
-                                        Takım
+                                        Eski Takım
                                     </th>
+                                    <th>
+                                        Yeni Takım
+                                    </th>
+
                                     <th>
                                         Tarih
                                     </th>
@@ -310,17 +314,19 @@
                                 <tr>
                                     <td>
                                         <img src="../assets/img/indir.png" width="20px" alt="">
-                                    <span>{{ transfer.player.all|join:', ' }}</span>
+                                    <span>{{ transfer.player.name}}</span>
                                     </td>
                                     <td>
-                                        {{ transfer.player.first.pozition }}
+                                        {{ transfer.player.pozition }}
                                     </td>
                                     <td>
-                                        {{ transfer.player.first.age }}
+                                        {{ transfer.player.age }}
                                     </td>
                                     <td>
-                                        <img src="../assets/img/indir.png" width="20px" alt="">
-                                        <span>{{ transfer.ok.first.name }}</span>
+                                        <span>{{ transfer.ok.name }}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ transfer.tok.name }}</span>
                                     </td>
                                     <td>
                                         {{ transfer.time|date:"d/m/Y" }}
