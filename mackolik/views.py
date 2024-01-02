@@ -35,6 +35,7 @@ def league_details(request, league_slug):
     leagues = get_object_or_404(Leagues, slug=league_slug)
     match_leagues = Matches.objects.filter(league=leagues).order_by('-time')
     standings = Standings.objects.filter(club__league=leagues).order_by('-puan')
+    standings = [(i + 1, standing) for i, standing in enumerate(standings)]
     return render(request, 'pages/league_details.html', {
         'leagues': leagues,
         'match_leagues': match_leagues,
