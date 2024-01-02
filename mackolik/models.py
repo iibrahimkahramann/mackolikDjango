@@ -50,6 +50,21 @@ class Cup(models.Model):
         return self.name
 
 
+
+
+class ClubCups(models.Model):
+    club = models.ForeignKey('Club', on_delete=models.CASCADE, verbose_name='Kulüp', null=True)
+    cup = models.ForeignKey(Cup, on_delete=models.CASCADE, verbose_name='Kupa', null=True)
+    piece = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        db_table = 'ClubCups'
+        verbose_name = 'Kulüp Kupaları'
+        verbose_name_plural = 'Kulüp Kupaları'
+
+    def __str__(self):
+        return self.club.name
+
 class Club(models.Model):
     name = models.CharField(max_length=120, unique=True, verbose_name = 'İsim')
     nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE, verbose_name = 'Ülke', null=True)
@@ -58,7 +73,7 @@ class Club(models.Model):
     league = models.ForeignKey(Leagues, on_delete=models.CASCADE, verbose_name = 'Lig')
     image = models.ImageField(upload_to='news_club_images/', default='club_image.jpg', verbose_name = 'Logo')
     slug = AutoSlugField(populate_from='name', unique=True, editable=True, blank=True)
-    cup = models.ForeignKey(Cup, on_delete=models.CASCADE, related_name='kupa', null=True,verbose_name = 'Kupa')
+    cup = models.ForeignKey(ClubCups, on_delete=models.CASCADE, related_name='kupa', null=True,verbose_name = 'Kupa')
 
     class Meta:
         db_table = 'Club'

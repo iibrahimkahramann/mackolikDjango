@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Leagues, Club, Matches, Player,News, Transfers, Standings, Nationality
+from .models import Leagues, Club, Matches, Player,News, Transfers, Standings, Nationality,ClubCups
 from django.db.models import Q
 from django.contrib.auth import login, authenticate, logout
 from .forms import CustomUserCreationForm, CustomAuthenticationForm, UserProfileForm, CustomPasswordChangeForm
@@ -58,6 +58,7 @@ def club_details(request, club_slug):
         'matches': matches,
         'standings': standings,
         'transfers': transfers,
+
 
     })
 
