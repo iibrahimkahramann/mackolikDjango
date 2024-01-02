@@ -137,7 +137,7 @@ class Referee(models.Model):
 class Matches(models.Model):
     club1 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='kulüp1', verbose_name='Kulüp 1')
     club2 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='kulüp2', verbose_name='Kulüp 2')
-    time = models.FloatField(verbose_name='Maç Saati')
+    time = models.CharField( max_length=20,verbose_name='Maç Saati')
     stadium = models.CharField(max_length=120, verbose_name='Stadyum')
     club1_skor = models.CharField(max_length=120, verbose_name='Kulüp 1 Skor')
     club2_skor = models.CharField(max_length=120, null=True, verbose_name='Kulüp 2 Skor')
@@ -207,12 +207,27 @@ class News(models.Model):
 
 
 
+class Contrat(models.Model):
+    contrat = models.CharField(max_length=120, verbose_name='Kontrat', null=True)
+
+
+    class Meta:
+        db_table = 'Contrat'
+        verbose_name = 'Kontrat'
+        verbose_name_plural = 'Kontratlar'
+
+    def __str__(self):
+        return self.contrat
+
+
+
 
 class Transfers(models.Model):
     player = models.ForeignKey(Player, on_delete=models.CASCADE, verbose_name='Oyuncu', null=True)
     tok = models.ForeignKey(Club, on_delete=models.CASCADE,verbose_name='Transfer Olduğu Kulüp', null=True)
     ok = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='play_club',verbose_name='Oynadığı Kulüp', null=True)
     time = models.DateField(verbose_name='Tarih',)
+    contrat = models.ForeignKey(Contrat, on_delete=models.CASCADE,verbose_name='Kontrat', null=True)
 
     class Meta:
         db_table = 'Transfers'

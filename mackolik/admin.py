@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Leagues, Club, Coach, Player, Matches, Referee, Author, News, Cup, Transfers, Nationality, Standings,PlayerClubHistory
+from .models import Leagues, Club, Coach, Player, Matches, Referee, Author, News, Cup, Transfers, Nationality, Standings,PlayerClubHistory,Contrat
 from django.forms import widgets
 
 class LeaguesAdmin(admin.ModelAdmin):
@@ -113,4 +113,7 @@ class PlayerClubHistoryAdmin(admin.ModelAdmin):
 
 admin.site.register(PlayerClubHistory,PlayerClubHistoryAdmin)
 
+class ContractAdmin(admin.ModelAdmin):
+    pass
 
+admin.site.register(Contrat,ContractAdmin)
